@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://asingh.greenriverdev.com/truck/styles/styles.css">
+
+    <title>Home</title>
+    <style>
+        #left
+        {
+            min-height: 100vh;
+        }
+        #right
+        {
+            min-height: 100vh;
+        }
+        #navbarbg
+        {
+            border-bottom: 1px solid #200000;
+        }
+    </style>
+</head>
+<body>
+<!--navbar-->
+<nav class="navbar navbar-toggleable-sm navbar-inverse bg-faded py-0" id="navbarbg">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a id="color" class="navbar-brand" style="border-right: 1px solid#200000; padding-right: 12px;" href="#">Trucking Help</a>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Option1 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Option2</a>
+            </li>
+        </ul>
+        <!--for search-->
+        <form class="form-inline my-2 my-sm-0">
+            <input class="form-control mr-sm-2 py-1" id="color" type="text" placeholder="Search">
+            <button class="btn btn-outline-danger my-2 my-sm-0 py-1" type="submit">Search</button>
+        </form>
+    </div><!--collapse navbar-collapse-->
+</nav><!--Navbar toggleable-->
+    <div class="row">
+        <div id="left" class="col-md-6">
+            <h1>
+                Trucking made easier
+            </h1>
+        </div> <!--left-->
+        <div class="col-md-6 bg-faded" id="right">
+            <form>
+                <div class="row mt-5">
+                    <div class="col-md-3 offset-3">
+                        <input class="form-control" type="text" placeholder="username">
+                        <small class="form-text text-muted"> You can also enter your email</small>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" type="text" placeholder="password" >
+                        <small class="form-text text-muted"> Forgot Password?</small>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary" type="button">Log In</button>
+                    </div>
+                </div><!--row for form login-->
+            </form>
+            <form>
+                <div class="row mt-5">
+                    <div class="col-md-6 offset-3 mt-5" >
+                        <img src="images/truckikon.png" class="img-rounded" width="">
+                        <div class="h4 mt-1 text-muted">
+                            Trucking made easier, get help any time, any where.
+                        </div>
+                        <div class="h6 mt-1 text-muted">
+                            Join Easy-trucking today.
+                        </div>
+                        <input class="form-control mt-4 col-md-10" type="text" placeholder="Email" >
+                        <input class="form-control mt-3 col-md-10" type="text" placeholder="Password" >
+                        <input class="form-control mt-3 col-md-10" type="text" placeholder="Confirm Password" >
+                    </div>
+                    <div class="row pl-3 col-md-6 offset-3 mt">
+                        <button class="btn btn-primary mt-5">Get Started &rarr; </button>
+                    </div>
+                </div><!--row for form login-->
+            </form>
+        </div><!--right-->
+    </div><!--row for left right-->
+
+</body>
+</html>
