@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://asingh.greenriverdev.com/truck/styles/styles.css">
+
+    <title>Home</title>
+    <style>
+        #left
+        {
+            min-height: 100vh;
+        }
+        #right
+        {
+            min-height: 100vh;
+        }
+        #navbarbg
+        {
+            border-bottom: 1px solid #200000;
+        }
+    </style>
+</head>
+<body>
+<!--navbar-->
+<nav class="navbar navbar-toggleable-sm navbar-inverse bg-faded py-0" id="navbarbg">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a id="color" class="navbar-brand" style="border-right: 1px solid#200000; padding-right: 12px;" href="#">Trucking Help</a>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Option1 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Option2</a>
+            </li>
+        </ul>
+        <!--for search-->
+        <form class="form-inline my-2 my-sm-0">
+            <button id="logout" class="btn btn-outline-danger my-2 my-sm-0 py-1" type="submit">LogOut</button>
+        </form>
+    </div><!--collapse navbar-collapse-->
+</nav><!--Navbar toggleable-->
+<div class="row">
+    <div id="left" class="col-md-6">
+        <h1 class="display-3 ml-2 mt-2">
+            Welcome to Easy Trucking.
+        </h1>
+        <div class="col-md-8 offset-4" style="margin-top: 10em;">
+            <img src="images/truck.png" height="">
+        </div>
+
+        <div class="col-md-4 offset-8" style="margin-top: 3em;">
+            <button class="btn btn-secondary mt-5" type="submit" name="start">Complete your profile &rarr; </button>
+
+        </div>
+    </div> <!--left-->
+    <div class="col-md-6 bg-faded" id="right">
+
+    </div><!--right-->
+</div><!--row for left right-->
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+</script>
+</html>

@@ -42,8 +42,7 @@
         </ul>
         <!--for search-->
         <form class="form-inline my-2 my-sm-0">
-            <input class="form-control mr-sm-2 py-1" id="color" type="text" placeholder="Search">
-            <button class="btn btn-outline-danger my-2 my-sm-0 py-1" type="submit">Search</button>
+            <button id="logout" class="btn btn-outline-danger my-2 my-sm-0 py-1" type="submit">LogOut</button>
         </form>
     </div><!--collapse navbar-collapse-->
 </nav><!--Navbar toggleable-->
@@ -54,22 +53,28 @@
             </h1>
         </div> <!--left-->
         <div class="col-md-6 bg-faded" id="right">
-            <form>
+            <form action="#" method="post">
                 <div class="row mt-5">
                     <div class="col-md-3 offset-3">
-                        <input class="form-control" type="text" placeholder="username">
-                        <small class="form-text text-muted"> You can also enter your email</small>
+                        <input class="form-control" type="text" placeholder="username" name="username" value="{{@username}}">
+                        <small id="hide" class="form-text text-muted"> You can also enter your email</small>
+                        <check if="{{isset(@errors['notfound'])}}">
+                            <small class="form-text text-danger">{{@errors['notfound']}}</small>
+                        </check>
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" type="text" placeholder="password" >
+                        <input class="form-control" type="password" placeholder="password" name="pw" value="{{@pw}}">
                         <small class="form-text text-muted"> Forgot Password?</small>
+                        <check if="{{isset(@errors['pw'])}}">
+                            <small class="form-text text-danger">{{@errors['pw']}}</small>
+                        </check>
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-primary" type="button">Log In</button>
+                        <button id="click" class="btn btn-primary" type="submit" name="submit">Log In</button>
                     </div>
                 </div><!--row for form login-->
             </form>
-            <form>
+            <form action="#" method="post">
                 <div class="row mt-5">
                     <div class="col-md-6 offset-3 mt-5" >
                         <img src="images/truckikon.png" class="img-rounded" width="">
@@ -79,17 +84,35 @@
                         <div class="h6 mt-1 text-muted">
                             Join Easy-trucking today.
                         </div>
-                        <input class="form-control mt-4 col-md-10" type="text" placeholder="Email" >
-                        <input class="form-control mt-3 col-md-10" type="text" placeholder="Password" >
-                        <input class="form-control mt-3 col-md-10" type="text" placeholder="Confirm Password" >
+                        <input class="form-control mt-4 col-md-10" type="text" placeholder="Email" name="email" value="{{@email}}">
+                        <check if="{{isset(@errors['email'])}}">
+                            <small class="mt-1 col-md-10 text-danger">{{@errors['email']}}</small>
+                        </check>
+                        <input class="form-control mt-3 col-md-10" type="password" placeholder="Password" name="password" value="{{@password}}">
+                        <check if="{{isset(@errors['password'])}}">
+                            <small class="mt-1 col-md-10 text-danger">{{@errors['password']}}</small>
+                        </check>
+                        <input class="form-control mt-3 col-md-10" type="password" placeholder="Confirm Password"  name="cpassword" value="{{@cpassword}}">
+                        <check if="{{isset(@errors['cpassword'])}}">
+                            <small class="mt-1 col-md-10 text-danger">{{@errors['cpassword']}}</small>
+                        </check>
                     </div>
                     <div class="row pl-3 col-md-6 offset-3 mt">
-                        <button class="btn btn-primary mt-5">Get Started &rarr; </button>
+                        <button class="btn btn-primary mt-5" type="submit" name="start">Get Started &rarr; </button>
                     </div>
                 </div><!--row for form login-->
             </form>
         </div><!--right-->
     </div><!--row for left right-->
-
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    $("#logout").click(function () {
+        alert("Are you sure you want to log out?");
+});
+});
+</script>
 </html>
