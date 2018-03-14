@@ -11,6 +11,10 @@ require_once('vendor/autoload.php');
 //require config file
 require_once('/home/asinghgr/config.php');
 
+require_once ('model/dbconnections.php');
+
+require_once ('classes/userinfo.php');
+
 //start a session
 session_start();
 
@@ -22,26 +26,74 @@ $f3 = Base :: instance();
 $f3->set('DEBUG', 3);
 //start the session
 
+$dbh = connect();
 
 $f3->route('GET|POST /', function ($f3)
 {
-    if (isset($_POST['start']))
+    if (isset($_POST['submit']))
     {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $username = $_POST['username'];
+        $pw = $_POST['pw'];
 
-        require ('model/homeval.php');
+
+        require ('model/loginval.php');
+
+        $f3->set('username',$username);
+        $f3->set('pw',$pw);
 
         $f3->set('success',$success);
         $f3->set('errors', $errors);
 
         if ($success)
         {
-            echo "hie";
+            $f3->reroute('/first');
+        }
+
+
+    }
+    else if (isset($_POST['start']))
+    {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $cpassword = $_POST['cpassword'];
+
+        require ('model/homeval.php');
+
+        $f3->set('email',$email);
+        $f3->set('password',$password);
+        $f3->set('cpassword', $cpassword);
+        $f3->set('success',$success);
+        $f3->set('errors', $errors);
+        //insertUser(1,ajwinde.com,aloo);
+
+
+
+        if ($success)
+        {
+            $password = sha1($password);
+            //$result = insertStudent(891121,"ajwn","aqer",0000-00-00,1,1);
+            $result = user("",$email,$password);
+
+            if ($result)
+            {
+                $f3->reroute('/first');
+            }
+            else
+            {
+                $f3->reroute('views/errorpage');
+            }
         }
     }
     $template = new Template();
     echo $template->render('views/home.html');
+}
+);
+
+$f3->route('GET|POST /first', function ($f3)
+{
+
+    $template = new Template();
+    echo $template->render('views/first.html');
 }
 );
 
