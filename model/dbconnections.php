@@ -48,7 +48,7 @@ function user($id, $email, $password)
     return $result;
 }
 
-function getUser($password)
+function getUser($pw)
 {
     global $dbh;
 
@@ -61,7 +61,30 @@ function getUser($password)
     //$sid = 'sid';
 
     //bind params
-    $statement->bindParam(':password', $password, PDO::PARAM_INT);
+    $statement->bindParam(':password', $pw, PDO::PARAM_INT);
+
+    //execute
+    $statement->execute();
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+function getStudent($sid)
+{
+    global $dbh;
+
+    //select from database
+    $sql = "SELECT * FROM student WHERE sid = :sid";
+
+    //prepare statement
+    $statement = $dbh->prepare($sql);
+
+    //$sid = 'sid';
+
+    //bind params
+    $statement->bindParam(':sid', $sid, PDO::PARAM_INT);
 
     //execute
     $statement->execute();
