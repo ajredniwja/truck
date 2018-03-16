@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="http://asingh.greenriverdev.com/truck/styles/styles.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <title>Home</title>
     <style>
         #left
@@ -52,16 +52,69 @@
             Welcome to Easy Trucking.
         </h1>
         <div class="col-md-8 offset-4" style="margin-top: 10em;">
-            <img src="images/truck.png" height="">
+            <img id="truck" src="images/truck.png" height="">
         </div>
 
         <div class="col-md-4 offset-8" style="margin-top: 3em;">
-            <button class="btn btn-secondary mt-5" type="submit" name="start">Complete your profile &rarr; </button>
-
+            <button id="complete" class="btn btn-secondary mt-5" type="submit" name="start">Complete your profile</button>
         </div>
     </div> <!--left-->
     <div class="col-md-6 bg-faded" id="right">
+        <div id="showright" class="text-muted mt-3 ml-2">
+            <h1>
+                Personal Information
+                <img src="images/truckikon.png" class="img-rounded" width="">
+            </h1>
+            <form id="formid" action="#" method="post" onsubmit="return validateForm()">
+                <div class="row mt-5">
+                    <div class="col-md-5 offset-0">
+                        <div class="h6 mt-4 text-muted">
+                            <label>First Name:</label>
+                        </div>
+                        <input class="form-control" type="text" placeholder="First Name" name="fname" value="{{@fname}}" required>
+                    </div>
+                    <div class="col-md-5 offset-0">
+                        <div class="h6 mt-4 text-muted">
+                            <label>Last Name:</label>
+                        </div>
+                        <input class="form-control" type="text" placeholder="username" name="lname" value="{{@lname}}" required>
+                    </div>
+                </div><!--row for form login-->
+                <div class="h6 mt-3 text-muted">
+                        <span>Email :</span>
+                </div>
+                <div class="row col-md-5">
+                    <input class="form-control" type="email" placeholder="Email" name="email" value="{{@email}}" required>
+                </div>
+                <div class="h6 mt-3 text-muted">
+                    <span>Phone:</span>
+                    <small>(10 digits, without any symbols)</small>
+                </div>
+                <div class="row col-md-5">
+                    <input class="form-control" type="text" placeholder="Phone Number" name="phone">
+                </div>
+                <div class="h6 mt-3 text-muted">
+                    <span>State:</span>
+                </div>
+                <div class="row col-md-5">
+                    <select class="form-control" name="state" id="state" name="state">
+                        <option value="">---SELECT---</option>
 
+                        <repeat group="{{ @states }}" value="{{ @stateOption }}">
+                            <option
+                            <check if="{{ @stateOption == @stateselect }}">
+                                selected</check>>
+                            {{ @stateOption }}
+                            </option>
+                        </repeat>
+                    </select>
+                </div>
+                <div class="col-3 mt-5 offset-4">
+                    <button id="submit" type="submit" name="submit" class="btn btn-primary btn-md mt-5">Submit</button>
+                </div>
+
+            </form>
+        </div>
     </div><!--right-->
 </div><!--row for left right-->
 </body>
@@ -69,6 +122,53 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-
+    $('#showright').hide();
 </script>
+<script>
+    $(document).ready(function(){
+        $("#complete").click(function(){
+            $("#truck").animate({height : '300px',width : '300px',opacity : '0.4'});
+            $("#truck").animate({height : '256px',width : '256px'});
+            $("#showright").animate({height : 'toggle'}, "slow");
+            $("#complete").hide();
+        });
+    });
+</script>
+<script>
+    function validateForm() {
+         var fname = document.forms["formid"]["fname"].value;
+        var email = document.forms["formid"]["email"].value;
+        var lname = document.forms["formid"]["lname"].value;
+        var state = document.forms["formid"]["state"].value;
+        var phone = document.forms["formid"]["phone"].value;
+
+
+        if (fname == "")
+        {
+            alert("First Name cannot be empty");
+            return false;
+        }
+        if (lname == "")
+        {
+            alert("Last name cannot be empty");
+            return false;
+        }
+        if (state == "")
+        {
+            alert("Please Select a State");
+            return false;
+        }
+        if (phone.length != 10)
+        {
+            alert("Please enter a valid phone number");
+            return false;
+        }
+        if (fname == "")
+        {
+            alert("Email cannot be empty");
+            return false;
+        }
+    }
+</script>
+
 </html>

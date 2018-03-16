@@ -1,6 +1,5 @@
 body
 {
-    background-color: #200000;
     color: white;
 }
 strong
@@ -10,4 +9,15 @@ strong
 #color
 {
     color: #200000;
+}
+#right
+{
+    float: right;
+    width: 50%;
+}
+#left
+{
+    background-color: #200000;
+    float: left;
+    width: 50%;
 }

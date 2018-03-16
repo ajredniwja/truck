@@ -13,7 +13,8 @@ require_once('/home/asinghgr/config.php');
 
 require_once ('model/dbconnections.php');
 
-require_once ('classes/userinfo.php');
+require_once ('classes/user.php');
+require_once ('classes/profile.php');
 
 //start a session
 session_start();
@@ -24,7 +25,13 @@ $f3 = Base :: instance();
 //Set debug level
 //will take care of php errors as well which gives 500 error
 $f3->set('DEBUG', 3);
-//start the session
+
+//array of states
+$f3->set('states',array('Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida',
+    'Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota',
+    'Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota',
+    'Ohio','Oklahoma','Oregon','Pennsylvania', 'Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont',
+    'Virginia','Washington','West Virginia','Wisconsin','Wyoming'));
 
 $dbh = connect();
 
@@ -46,6 +53,8 @@ $f3->route('GET|POST /', function ($f3)
 
         if ($success)
         {
+            $user = new Profile($username);
+            $_SESSION['user'] = $user; //assigning it to a session variable
             $f3->reroute('/first');
         }
 
@@ -65,14 +74,15 @@ $f3->route('GET|POST /', function ($f3)
         $f3->set('success',$success);
         $f3->set('errors', $errors);
         //insertUser(1,ajwinde.com,aloo);
-
-
-
         if ($success)
         {
+
             $password = sha1($password);
             //$result = insertStudent(891121,"ajwn","aqer",0000-00-00,1,1);
             $result = user("",$email,$password);
+
+            $user = new Profile($email);
+            $_SESSION['user'] = $user;
 
             if ($result)
             {
@@ -92,8 +102,33 @@ $f3->route('GET|POST /', function ($f3)
 $f3->route('GET|POST /first', function ($f3)
 {
 
+    $user = $_SESSION['user'];
+    $user->setFname($_POST['fname']);
+    $user->setLname($_POST['lname']);
+    $user->setPhone($_POST['phone']);
+    $user->setState($_POST['state']);
+
+    $f3->set('fname', $user->getFname());
+    $f3->set('lname', $user->getLname());
+    $f3->set('email', $user->getEmail());
+
+
+    if (isset($_POST['submit']))
+    {
+        $_SESSION['user'] = $user;
+        $f3->reroute('/main');
+    }
+
     $template = new Template();
     echo $template->render('views/first.html');
+}
+);
+
+$f3->route('GET|POST /main', function ($f3)
+{
+
+    $template = new Template();
+    echo $template->render('views/main.html');
 }
 );
 
