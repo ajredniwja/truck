@@ -71,25 +71,29 @@ function getUser($pw)
     return $result;
 }
 
-function getStudent($sid)
+function insertInfo($id,$fname,$lname,$email,$scaleinfo,$state,$info)
 {
     global $dbh;
 
-    //select from database
-    $sql = "SELECT * FROM student WHERE sid = :sid";
+    //1. Define the query
+    $sql = "INSERT INTO info VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info);";
 
-    //prepare statement
+    //2. Prepare the statement
     $statement = $dbh->prepare($sql);
 
-    //$sid = 'sid';
+    //3. Bind parameters
+    $statement->bindParam(':id', $id, PDO::PARAM_STR);
+    $statement->bindParam(':fname', $fname, PDO::PARAM_STR);
+    $statement->bindParam(':lname', $lname, PDO::PARAM_STR);
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->bindParam(':scaleinfo', $scaleinfo, PDO::PARAM_STR);
+    $statement->bindParam(':state', $state, PDO::PARAM_STR);
+    $statement->bindParam(':info', $info, PDO::PARAM_STR);
 
-    //bind params
-    $statement->bindParam(':sid', $sid, PDO::PARAM_INT);
+    //4. Execute the query
+    $result = $statement->execute();
 
-    //execute
-    $statement->execute();
 
-    $result = $statement->fetch(PDO::FETCH_ASSOC);
-
+    //5. Return the result
     return $result;
 }
