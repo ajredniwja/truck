@@ -10,16 +10,17 @@
         #left
         {
             min-height: 100vh;
+            cursor: pointer;
         }
         #right
         {
             min-height: 100vh;
+            cursor: pointer;
         }
         #navbarbg
         {
             border-bottom: 1px solid #200000;
         }
-
     </style>
 </head>
 <body>
@@ -49,20 +50,81 @@
 </nav><!--Navbar toggleable-->
 <div class="row">
     <div id="left" class="col-md-6">
-        <div class="text-center" style="margin-top: 45vh">
+        <div class="text-center" style="margin-top: 42vh">
             <h1 class="align-middle display-3">Make a Post</h1>
         </div>
     </div> <!--left-->
     <div class="col-md-6 bg-faded" id="right">
-        <div class="text-center text-muted" style="margin-top: 45vh">
+        <div class="text-center text-muted" style="margin-top: 42vh">
             <h1 class="align-middle display-3">View Posts</h1>
         </div>
     </div><!--right-->
 </div><!--row for left right-->
+
+
+<div id="container align-middle" class="container rounded bg-faded text-muted mt-5" style="">
+    <br>
+    <p class="display-4 text-center mt-2">Make a Post</p>
+    <form id="formid" action="#" method="post" onsubmit="return validateForm()">
+        <div>
+        <div class="row mt-5">
+            <div class="col-md-6 offset-0">
+                <div class="h6 mt-4 text-muted">
+                    <label class="font-weight-bold">First Name:</label>
+                </div>
+                <input class="form-control" type="text" placeholder="First Name" name="fname" value="{{@fname}}" required>
+            </div>
+            <div class="col-md-6 offset-0">
+                <div class="h6 mt-4 text-muted">
+                    <label class="font-weight-bold">Last Name:</label>
+                </div>
+                <input class="form-control" type="text" placeholder="Last Name" name="lname" value="{{@lname}}" required>
+            </div>
+        </div><!--row for form login-->
+    </div>
+        <div>
+            <div class="row">
+                <div class="col-md-6 offset-0 ">
+                    <div class="h6 mt-4 text-muted">
+                        <label class="font-weight-bold">Select State</label>
+                    </div>
+                    <select class="form-control" name="state" id="state" name="state">
+                        <option value="">---SELECT---</option>
+
+                        <repeat group="{{ @states }}" value="{{ @stateOption }}">
+                            <option
+                            <check if="{{ @stateOption == @stateselect }}">
+                                selected</check>>
+                            {{ @stateOption }}
+                            </option>
+                        </repeat>
+                    </select>
+                </div>
+                <div class="col-md-6 offset-0">
+                    <div class="h6 mt-4 text-muted">
+                        <label class="font-weight-bold">Scale Information:</label>
+                    </div>
+                    <input type="radio" name="scale" value="open"> Open
+                    <input class="ml-4" type="radio" name="scale" value="notopen"> Not Open
+                </div>
+            </div><!--row for form login-->
+        </div>
+        <div class="row col-md-6">
+            <label class="font-weight-bold mt-2">Information<small> (Must be atleast 20 characters)</small></label>
+
+            <textarea class="form-control" rows="7" name="info" required></textarea>
+            <br>
+        </div>
+        <div class="offset-10">
+            <button type="submit" name="submit" class="btn btn-primary btn-md mt-4 mb-5">SUBMIT</button>
+        </div>
+    </form>
+</div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <script>
+    $("#container").hide();
     $(document).ready(function () {
         $("#logout").click(function () {
             alert("Are you sure  you  want to log out?");
@@ -72,19 +134,75 @@
 <script>
     $(document).ready(function(){
         $("#left").mouseover(function(){
-            $("#left").css("opacity", "0.9");
+            $("#left").css("opacity", "0.8");
         });
         $("#left").mouseout(function(){
             $("#left").css("opacity", "1");
         });
         $("#right").mouseover(function(){
             $("#right").css("background-color", "lightgrey");
-            $("#right").css("opacity", "0.7");
+            $("#right").css("opacity", "0.6");
 
         });
         $("#right").mouseout(function(){
             $("#right").css("background-color", "#f7f7f7");
         });
     });
+</script>
+<script>
+    $(document).ready(function(){
+        $("#left").click(function(){
+            $("#left").hide();
+            $("#right").hide();
+            // $("html").css("background", "url(images/truck.png");
+            $("body").css("background", "url(images/road.jpg");
+            $("body").css("opacity", "0.93");
+
+            $("body").css("height", "100vh");
+            $("body").css("background-position", "center");
+            $("body").css("background-repeat", "no-repeat");
+            $("body").css("background-size", "cover");
+            $("body").css("background-attachment", "fixed");
+            $("#container").show();
+        });
+    });
+</script>
+
+<script>
+    function validateForm() {
+        var fname = document.forms["formid"]["fname"].value;
+        var lname = document.forms["formid"]["lname"].value;
+        var state = document.forms["formid"]["state"].value;
+        var scale = document.forms["formid"]["scale"].value;
+        var info = document.forms["formid"]["info"].value;
+
+
+
+        if (fname == "")
+        {
+            alert("First Name cannot be empty");
+            return false;
+        }
+        if (lname == "")
+        {
+            alert("Last name cannot be empty");
+            return false;
+        }
+        if (state == "")
+        {
+            alert("Please Select a State");
+            return false;
+        }
+        if ((scale != "open" ) && (scale != "notopen"))
+        {
+            alert("Please indicate scale information!");
+            return false;
+        }
+        if (info.length < 20)
+        {
+            alert("Please enter valid information. i.e Atleast 20 characters");
+            return false;
+        }
+    }
 </script>
 </html>
