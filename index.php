@@ -15,6 +15,8 @@ require_once ('model/dbconnections.php');
 
 require_once ('classes/user.php');
 require_once ('classes/profile.php');
+require_once ('classes/info.php');
+
 
 //start a session
 session_start();
@@ -53,7 +55,7 @@ $f3->route('GET|POST /', function ($f3)
 
         if ($success)
         {
-            $user = new Profile($username);
+            $user = new Info($username);
             $_SESSION['user'] = $user; //assigning it to a session variable
             $f3->reroute('/first');
         }
@@ -81,7 +83,7 @@ $f3->route('GET|POST /', function ($f3)
             //$result = insertStudent(891121,"ajwn","aqer",0000-00-00,1,1);
             $result = user("",$email,$password);
 
-            $user = new Profile($email);
+            $user = new Info($email);
             $_SESSION['user'] = $user;
 
             if ($result)
@@ -126,6 +128,25 @@ $f3->route('GET|POST /first', function ($f3)
 
 $f3->route('GET|POST /main', function ($f3)
 {
+    $user = $_SESSION['user'];
+
+    $user->setInState($_POST['state']);
+    $user->setScaleinfo($_POST['scaleinfo']);
+    $user->setInfo($_POST['info']);
+    $f3->set('fname', $user->getFname());
+    $f3->set('lname', $user->getLname());
+
+    if (isset($_POST['submit']))
+    {
+//        $result = insertInfo("", "$user->getFname","$user->getLname", "$user->getEmail",
+//            "$user->getScaleinfo","$user->getInState","$user->getInfo");
+//
+//        if ($result)
+//        {
+//
+//        }
+        print_r($user);
+    }
 
     $template = new Template();
     echo $template->render('views/main.html');
