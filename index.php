@@ -176,7 +176,7 @@ $f3->route('GET|POST /main', function ($f3)
 //        {
 //
 //        }
-        print_r($user);
+        //print_r($user);
     }
 
     $template = new Template();
