@@ -31,7 +31,17 @@
 
 /*************************************************************************
  *************************************************************************
- * The connect function, used to connect to the database  ****************
+CREATE TABLE `asinghgr_grc`.`posts`
+ * ( `id` INT(50) NOT NULL AUTO_INCREMENT ,
+ * `fname` VARCHAR(50) NOT NULL ,
+ * `lname` VARCHAR(50) NOT NULL ,
+ * `email` VARCHAR(50) NOT NULL ,
+ * `scaleinfo` VARCHAR(20) NOT NULL ,
+ * `state` VARCHAR(50) NOT NULL ,
+ * `info` TEXT NOT NULL ,
+ * `q` INT(50) NOT NULL ,
+ * PRIMARY KEY (`id`))
+ * ENGINE = MyISAM;
  *************************************************************************
  *************************************************************************
  */
@@ -128,32 +138,32 @@ function profile($id,$fname,$lname,$phone,$email)
 }
 
 
-//function insertInfo($id,$fname,$lname,$email,$scaleinfo,$state,$info)
-//{
-//    global $dbh;
-//
-//    //1. Define the query
-//    $sql = "INSERT INTO info VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info);";
-//
-//    //2. Prepare the statement
-//    $statement = $dbh->prepare($sql);
-//
-//    //3. Bind parameters
-//    $statement->bindParam(':id', $id, PDO::PARAM_STR);
-//    $statement->bindParam(':fname', $fname, PDO::PARAM_STR);
-//    $statement->bindParam(':lname', $lname, PDO::PARAM_STR);
-//    $statement->bindParam(':email', $email, PDO::PARAM_STR);
-//    $statement->bindParam(':scaleinfo', $scaleinfo, PDO::PARAM_STR);
-//    $statement->bindParam(':state', $state, PDO::PARAM_STR);
-//    $statement->bindParam(':info', $info, PDO::PARAM_STR);
-//
-//    //4. Execute the query
-//    $result = $statement->execute();
-//
-//
-//    //5. Return the result
-//    return $result;
-//}
+function insertPost($id,$fname,$lname,$email,$scaleinfo,$state,$info)
+{
+    global $dbh;
+
+    //1. Define the query
+    $sql = "INSERT INTO info VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info);";
+
+    //2. Prepare the statement
+    $statement = $dbh->prepare($sql);
+
+    //3. Bind parameters
+    $statement->bindParam(':id', $id, PDO::PARAM_STR);
+    $statement->bindParam(':fname', $fname, PDO::PARAM_STR);
+    $statement->bindParam(':lname', $lname, PDO::PARAM_STR);
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->bindParam(':scaleinfo', $scaleinfo, PDO::PARAM_STR);
+    $statement->bindParam(':state', $state, PDO::PARAM_STR);
+    $statement->bindParam(':info', $info, PDO::PARAM_STR);
+
+    //4. Execute the query
+    $result = $statement->execute();
+
+
+    //5. Return the result
+    return $result;
+}
 
 function getProfile($email)
 {
