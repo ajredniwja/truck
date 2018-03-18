@@ -94,8 +94,8 @@ $f3->route('GET|POST /', function ($f3)
         //insertUser(1,ajwinde.com,aloo);
         if ($success)
         {
-
             $password = sha1($password);
+            //inserting to database
             $result = user("",$email,$password);
 
             $user = new Info($email);
@@ -166,17 +166,11 @@ $f3->route('GET|POST /main', function ($f3)
     $user->setInfo($_POST['info']);
     $f3->set('fname', $user->getFname());
     $f3->set('lname', $user->getLname());
+    //insertPost("","i","i","sd","dsds","dk","kjdsjkljsd");
 
     if (isset($_POST['submit']))
     {
-//        $result = insertInfo("", "$user->getFname","$user->getLname", "$user->getEmail",
-//            "$user->getScaleinfo","$user->getInState","$user->getInfo");
-//
-//        if ($result)
-//        {
-//
-//        }
-        //print_r($user);
+        insertPost("",$user->getFname(),$user->getLname(),$user->getEmail(),$user->getScaleinfo(),$user->getInState(),$user->getInfo());
     }
 
     $template = new Template();
