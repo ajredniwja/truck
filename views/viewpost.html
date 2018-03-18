@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://asingh.greenriverdev.com/truck/styles/styles.css">
+
+    <title>Home</title>
+    <style>
+        #left
+        {
+            min-height: 100vh;
+            cursor: pointer;
+        }
+        #right
+        {
+            min-height: 100vh;
+            cursor: pointer;
+        }
+        #navbarbg
+        {
+            border-bottom: 1px solid #200000;
+        }
+    </style>
+</head>
+<body>
+<div id="container2" class="container rounded bg-faded text-muted mt-5" style="">
+    <br>
+    <p class="display-4 text-center mt-2">Posts</p>
+    <form id="formid" action="#" method="post" onsubmit="">
+        <div>
+            <div class="row mt-5">
+                <div class="col-md-6 offset-0 ">
+                    <div class="h6 mt-4 text-muted">
+                        <label class="font-weight-bold">Select State</label>
+                    </div>
+                    <select class="form-control" name="state" id="state" name="state">
+                        <option value="">---SELECT---</option>
+
+                        <repeat group="{{ @states }}" value="{{ @stateOption }}">
+                            <option
+                            <check if="{{ @stateOption == @stateselect }}">
+                                selected</check>>
+                            {{ @stateOption }}
+                            </option>
+                        </repeat>
+                    </select>
+                </div>
+                <div class="col-md-4 offset-1">
+                    <div class="h6 mt-4">
+                        <label class="font-weight-bold">.</label>
+                    </div>
+                    <button class="btn btn-primary btn-md">go >></button>
+                </div>
+            </div><!--row for form login-->
+        </div>
+        <hr>
+        <div class="row col-md-8 offset-2">
+            <label class="font-weight-bold mt-2">Information<small> (Must be atleast 20 characters)</small></label>
+            <div class="container mt-2" style="border: 1px solid black">
+                <h1>Hello hello hello</h1>
+            </div>
+            <div class="container mt-2" style="border: 1px solid black">
+                <h1>Hello hello hello</h1>
+            </div>            <div class="container" style="border: 1px solid black">
+            <h1>Hello hello hello</h1>
+        </div>            <div class="container" style="border: 1px solid black">
+            <h1>Hello hello hello</h1>
+        </div>
+        </div>
+        <div class="offset-10">
+            <button id="submit" type="submit" name="submit" class="btn btn-primary btn-md mt-4 mb-5">SUBMIT</button>
+        </div>
+    </form>
+</div>
+
+<div id="container2" class="container bg-faded">
+    <h1>Thankyou for the post</h1>
+</div>
+
+</body>
+</html>

@@ -166,17 +166,27 @@ $f3->route('GET|POST /main', function ($f3)
     $user->setInfo($_POST['info']);
     $f3->set('fname', $user->getFname());
     $f3->set('lname', $user->getLname());
+    //$f3->set('user', $user);
     //insertPost("","i","i","sd","dsds","dk","kjdsjkljsd");
+
+
 
     if (isset($_POST['submit']))
     {
-        insertPost("",$user->getFname(),$user->getLname(),$user->getEmail(),$user->getScaleinfo(),$user->getInState(),$user->getInfo());
+        //$user = $_SESSION['user'];
+
+        $result = insertPost("",$user->getFname(),$user->getLname(),$user->getEmail(),$user->getScaleinfo(),$user->getInState(),$user->getInfo());
+        if ($result)
+        {
+            $f3->reroute('google.com');
+        }
     }
 
     $template = new Template();
     echo $template->render('views/main.html');
 }
 );
+
 
 //Run fat free
 $f3->run();
