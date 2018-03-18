@@ -8,14 +8,13 @@ class User
     //fields
     protected $email;
 
-
     function __construct($email)
     {
         $this->email = $email;
     }
 
     /**
-     * @return email
+     * @return mixed
      */
     public function getEmail()
     {

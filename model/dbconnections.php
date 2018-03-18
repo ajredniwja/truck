@@ -1,11 +1,32 @@
 <?php
 
+
+//////////////////////////////////////
+/// login table///////////////////////
+/// /////////////////////////////////
+
 //CREATE TABLE `asinghgr_grc`.`login`
 //(`id` INT(200) NOT NULL AUTO_INCREMENT ,
 //`email` VARCHAR(30) NOT NULL ,
 //`password` VARCHAR(20) NOT NULL ,
 //PRIMARY KEY (`id`))
 //ENGINE = MyISAM
+
+
+
+//////////////////////////////////////
+/// profile table/////////////////////
+/// /////////////////////////////////
+
+
+//CREATE TABLE `asinghgr_grc`.`profile`
+// ( `id` INT(200) NOT NULL AUTO_INCREMENT ,
+// `fname` VARCHAR(50) NOT NULL ,
+// `lname` VARCHAR(50) NOT NULL ,
+// `phone` VARCHAR(50) NOT NULL ,
+// `email` VARCHAR(50) NOT NULL,
+// PRIMARY KEY (`id`)) ENGINE = MyISAM;
+
 
 function connect()
 {
@@ -71,12 +92,12 @@ function getUser($pw)
     return $result;
 }
 
-function insertInfo($id,$fname,$lname,$email,$scaleinfo,$state,$info)
+function profile($id,$fname,$lname,$phone,$email)
 {
     global $dbh;
 
     //1. Define the query
-    $sql = "INSERT INTO info VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info);";
+    $sql = "INSERT INTO profile VALUES (:id, :fname, :lname, :phone,:email);";
 
     //2. Prepare the statement
     $statement = $dbh->prepare($sql);
@@ -85,15 +106,64 @@ function insertInfo($id,$fname,$lname,$email,$scaleinfo,$state,$info)
     $statement->bindParam(':id', $id, PDO::PARAM_STR);
     $statement->bindParam(':fname', $fname, PDO::PARAM_STR);
     $statement->bindParam(':lname', $lname, PDO::PARAM_STR);
+    $statement->bindParam(':phone', $phone, PDO::PARAM_STR);
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
-    $statement->bindParam(':scaleinfo', $scaleinfo, PDO::PARAM_STR);
-    $statement->bindParam(':state', $state, PDO::PARAM_STR);
-    $statement->bindParam(':info', $info, PDO::PARAM_STR);
+
+
 
     //4. Execute the query
     $result = $statement->execute();
 
 
     //5. Return the result
+    return $result;
+}
+
+
+//function insertInfo($id,$fname,$lname,$email,$scaleinfo,$state,$info)
+//{
+//    global $dbh;
+//
+//    //1. Define the query
+//    $sql = "INSERT INTO info VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info);";
+//
+//    //2. Prepare the statement
+//    $statement = $dbh->prepare($sql);
+//
+//    //3. Bind parameters
+//    $statement->bindParam(':id', $id, PDO::PARAM_STR);
+//    $statement->bindParam(':fname', $fname, PDO::PARAM_STR);
+//    $statement->bindParam(':lname', $lname, PDO::PARAM_STR);
+//    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+//    $statement->bindParam(':scaleinfo', $scaleinfo, PDO::PARAM_STR);
+//    $statement->bindParam(':state', $state, PDO::PARAM_STR);
+//    $statement->bindParam(':info', $info, PDO::PARAM_STR);
+//
+//    //4. Execute the query
+//    $result = $statement->execute();
+//
+//
+//    //5. Return the result
+//    return $result;
+//}
+
+function getProfile($email)
+{
+    global $dbh;
+
+    //select from database
+    $sql = "SELECT * FROM profile WHERE email = :email";
+
+    //prepare statement
+    $statement = $dbh->prepare($sql);
+
+    //bind params
+    $statement->bindParam(':email', $email, PDO::PARAM_INT);
+
+    //execute
+    $statement->execute();
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
     return $result;
 }

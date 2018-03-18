@@ -57,11 +57,15 @@ $f3->route('GET|POST /', function ($f3)
         {
             $user = new Info($username);
             $_SESSION['user'] = $user; //assigning it to a session variable
-            $f3->reroute('/first');
+            $f3->reroute('/main');
         }
 
 
     }
+    /************************************************************************
+     * The registration
+     ************************************************************************
+     */
     else if (isset($_POST['start']))
     {
         $email = $_POST['email'];
@@ -80,7 +84,6 @@ $f3->route('GET|POST /', function ($f3)
         {
 
             $password = sha1($password);
-            //$result = insertStudent(891121,"ajwn","aqer",0000-00-00,1,1);
             $result = user("",$email,$password);
 
             $user = new Info($email);
@@ -105,6 +108,7 @@ $f3->route('GET|POST /first', function ($f3)
 {
 
     $user = $_SESSION['user'];
+
     $user->setFname($_POST['fname']);
     $user->setLname($_POST['lname']);
     $user->setPhone($_POST['phone']);
@@ -117,6 +121,7 @@ $f3->route('GET|POST /first', function ($f3)
 
     if (isset($_POST['submit']))
     {
+        profile("", $user->getFname(), $user->getLname(), $user->getPhone(),$user->getEmail());
         $_SESSION['user'] = $user;
         $f3->reroute('/main');
     }

@@ -115,7 +115,6 @@
                 <div class="col-3 mt-5 offset-4">
                     <button id="submit" type="submit" name="submit" class="btn btn-primary btn-md mt-5">Submit</button>
                 </div>
-
             </form>
         </div>
     </div><!--right-->
@@ -139,7 +138,7 @@
 </script>
 <script>
     function validateForm() {
-         var fname = document.forms["formid"]["fname"].value;
+        var fname = document.forms["formid"]["fname"].value;
         var email = document.forms["formid"]["email"].value;
         var lname = document.forms["formid"]["lname"].value;
         var state = document.forms["formid"]["state"].value;
@@ -166,7 +165,7 @@
             alert("Please enter a valid phone number");
             return false;
         }
-        if (fname == "")
+        if (email == "")
         {
             alert("Email cannot be empty");
             return false;
