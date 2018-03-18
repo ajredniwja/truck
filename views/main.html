@@ -72,7 +72,8 @@
                 <div class="h6 mt-4 text-muted">
                     <label class="font-weight-bold">First Name</label>
                 </div>
-                <input class="form-control" type="text" placeholder="First Name" name="fname" value="{{@fname}}" required>
+                <input class="form-control" type="text" placeholder="First Name" name="fname" id="pet-name" value="{{@fname}}" required>
+                <small id="detail"></small>
             </div>
             <div class="col-md-6 offset-0">
                 <div class="h6 mt-4 text-muted">
@@ -113,6 +114,7 @@
             <label class="font-weight-bold mt-2">Information<small> (Must be atleast 20 characters)</small></label>
 
             <textarea class="form-control" rows="7" name="info" required></textarea>
+            <div id="detail1"></div>
             <br>
         </div>
         <div class="offset-10">
@@ -121,53 +123,25 @@
     </form>
 </div>
 
-
-<div id="container2" class="container rounded bg-faded text-muted mt-5" style="">
-    <br>
-    <p class="display-4 text-center mt-2">Posts</p>
-    <form id="" action="#" method="post" onsubmit="">
-        <div>
-            <div class="row mt-5">
-                <div class="col-md-6 offset-0 ">
-                    <div class="h6 mt-4 text-muted">
-                        <label class="font-weight-bold">Select State</label>
-                    </div>
-                    <select class="form-control" name="state" id="state" name="state">
-                        <option value="">---SELECT---</option>
-
-                        <repeat group="{{ @states }}" value="{{ @stateOption }}">
-                            <option
-                            <check if="{{ @stateOption == @stateselect }}">
-                                selected</check>>
-                            {{ @stateOption }}
-                            </option>
-                        </repeat>
-                    </select>
-                </div>
-                <div class="col-md-4 offset-1">
-                    <div class="h6 mt-4">
-                        <label class="font-weight-bold">.</label>
-                    </div>
-                    <button id="go" class="btn btn-primary btn-md">go</button>
-                </div>
-            </div><!--row for form login-->
-        </div>
-        <hr>
-        <div class="row col-md-8 offset-2">
-            <repeat group="{{ @posts }}" value="{{ @post }}">
-                <h1>{{@post['state']}}</h1>
-            </repeat>
-            <label class="font-weight-bold mt-2">Information<small> (Must be atleast 20 characters)</small></label>
-            <div class="container mt-2" style="border: 1px solid black">
-                <h1>Hello hello hello</h1>
+<div id="viewpost">
+    <form action="#" method="post">
+        <div id="info" class="col-md-4 offset-4">
+            <h1 class="display-3 text-left" style="margin-top: 30vh;">Hello {{@name}}</h1>
+            <p class="font-weight-bold">Please select a state.</p>
+            <div class="row col-md-12">
+                <select class="form-control" name="statein" id="state" name="state">
+                    <option value="">---SELECT---</option>
+                    <repeat group="{{ @states }}" value="{{ @stateOption }}">
+                        <option
+                        <check if="{{ @stateOption == @stateselect }}">
+                            selected</check>>
+                        {{ @stateOption }}
+                        </option>
+                    </repeat>
+                </select>
+                <button name="go" id="go" class="btn btn-secondary btn-md offset-10 mt-3">-Go-</button>
+                <!--<button id="go" class="btn btn-secondary btn-md offset-10 mt-3">-Go-</button>-->
             </div>
-            <div class="container mt-2" style="border: 1px solid black">
-                <h1>Hello hello hello</h1>
-            </div>            <div class="container" style="border: 1px solid black">
-            <h1>Hello hello hello</h1>
-        </div>            <div class="container" style="border: 1px solid black">
-            <h1>Hello hello hello</h1>
-        </div>
         </div>
     </form>
 </div>
@@ -177,7 +151,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $("#container").hide();
-    $("#container2").hide();
+    $("#viewpost").hide();
     $(document).ready(function () {
         $("#logout").click(function () {
             alert("Are you sure  you  want to log out?");
@@ -220,53 +194,91 @@
         });
     });
 </script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-    function validateForm() {
-        var fname = document.forms["formid"]["fname"].value;
-        var lname = document.forms["formid"]["lname"].value;
-        var state = document.forms["formid"]["state"].value;
-        var scaleinfo = document.forms["formid"]["scaleinfo"].value;
-        var info = document.forms["formid"]["info"].value;
+    // $("#submit").mouseover(function(){
+    //     var petName = $("#pet-name").val();
+    //
+    //     //Make Ajax call
+    //     $.post("model/a.php",{petname:petName}, function(result){
+    //         $("#detail").html(result);
+    //          return false;
+    //     });
+    // });
+</script>
 
-        if (fname == "")
-        {
-            alert("First Name cannot be empty");
-            return false;
-        }
-        if (lname == "")
-        {
-            alert("Last name cannot be empty");
-            return false;
-        }
-        if (state == "")
-        {
-            alert("Please Select a State");
-            return false;
-        }
-        if ((scaleinfo != "open" ) && (scaleinfo != "notopen"))
-        {
-            alert("Please indicate scale information!");
-            return false;
-        }
-        if (info.length < 20)
-        {
-            alert("Please enter valid information. i.e Atleast 20 characters");
-            return false;
-        }
-        else
-        {
-            alert("Thankyou for your post");
-        }
+<script>
+    // $('#h').hide();
+    // var fname = $("h").val();
+    //
+    // if (fname == 1)
+    // {
+    //     $("#detail1").append("<h1>hello</h1>")
+    // }
+</script>
 
-    }
+<script>
+     function validateForm() {
+         var fname = document.forms["formid"]["fname"].value;
+         var lname = document.forms["formid"]["lname"].value;
+         var state = document.forms["formid"]["state"].value;
+         var scaleinfo = document.forms["formid"]["scaleinfo"].value;
+         var info = document.forms["formid"]["info"].value;
+
+         if (fname == "")
+         {
+             alert("First Name cannot be empty");
+             return false;
+         }
+         if (lname == "")
+         {
+             alert("Last name cannot be empty");
+             return false;
+         }
+         if (state == "")
+         {
+             alert("Please Select a State");
+             return false;
+         }
+         if ((scaleinfo != "open" ) && (scaleinfo != "notopen"))
+         {
+             alert("Please indicate scale information!");
+             return false;
+         }
+         if (info.length < 20)
+         {
+             alert("Please enter valid information. i.e Atleast 20 characters");
+             return false;
+         }
+         else
+         {
+             alert("Thankyou for your post");
+         }
+     }
+</script>
+<script>
+    // $(document).ready(function(){
+    //     $("#go").click(function(){
+    //         $(location).attr('href', 'http://asingh.greenriverdev.com/truck/viewpost');
+    //         return false;
+    //     });
+    // });
 </script>
 <script>
     $(document).ready(function(){
         $("#right").click(function(){
-            $(location).attr('href', 'http://asingh.greenriverdev.com/truck/viewpost');
-            return false;
+            $("#left").hide();
+            $("#right").hide();
+            // $("body").css("background-color", "lightgrey");
+            $("body").css("background", "url(images/bg.jpg");
+            // $("body").css("background-color", "black");
+            $("body").css("opacity", "0.93");
+            $("body").css("height", "100vh");
+            $("body").css("background-position", "center");
+            $("body").css("background-repeat", "no-repeat");
+            $("body").css("background-size", "cover");
+            $("body").css("background-attachment", "fixed");
+            $("#viewpost").show();
         });
     });
 </script>

@@ -7,76 +7,69 @@
 
     <title>Home</title>
     <style>
-        #left
+        body
         {
-            min-height: 100vh;
-            cursor: pointer;
-        }
-        #right
-        {
-            min-height: 100vh;
-            cursor: pointer;
-        }
-        #navbarbg
-        {
-            border-bottom: 1px solid #200000;
+            background: url("images/bg.jpg");
+            height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+
         }
     </style>
 </head>
 <body>
-<div id="container2" class="container rounded bg-faded text-muted mt-5" style="">
-    <br>
-    <p class="display-4 text-center mt-2">Posts</p>
-    <form id="formid" action="#" method="post" onsubmit="">
-        <div>
-            <div class="row mt-5">
-                <div class="col-md-6 offset-0 ">
-                    <div class="h6 mt-4 text-muted">
-                        <label class="font-weight-bold">Select State</label>
-                    </div>
-                    <select class="form-control" name="state" id="state" name="state">
-                        <option value="">---SELECT---</option>
+<!--navbar-->
+<nav class="navbar navbar-toggleable-sm navbar-inverse bg-faded py-0" id="navbarbg">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a id="color" class="navbar-brand" style="border-right: 1px solid#200000; padding-right: 12px;" href="#">Trucking Help</a>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Option1 </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="color" href="#">Option2</a>
+            </li>
+        </ul>
+        <!--for search-->
+        <form class="form-inline my-2 my-sm-0">
+            <button id="logout" class="btn btn-outline-danger my-2 my-sm-0 py-1" type="submit">LogOut</button>
+        </form>
+    </div><!--collapse navbar-collapse-->
+</nav><!--Navbar toggleable-->
 
-                        <repeat group="{{ @states }}" value="{{ @stateOption }}">
-                            <option
-                            <check if="{{ @stateOption == @stateselect }}">
-                                selected</check>>
-                            {{ @stateOption }}
-                            </option>
-                        </repeat>
-                    </select>
-                </div>
-                <div class="col-md-4 offset-1">
-                    <div class="h6 mt-4">
-                        <label class="font-weight-bold">.</label>
-                    </div>
-                    <button class="btn btn-primary btn-md">go >></button>
-                </div>
-            </div><!--row for form login-->
-        </div>
-        <hr>
-        <div class="row col-md-8 offset-2">
-            <label class="font-weight-bold mt-2">Information<small> (Must be atleast 20 characters)</small></label>
-            <div class="container mt-2" style="border: 1px solid black">
-                <h1>Hello hello hello</h1>
+<div class="container bg-faded mt-5">
+    <h1 class="display-3 text-muted text-center">{{@state}}</h1>
+    <repeat group="{{ @posts }}" value="{{ @post }}">
+        <div class="container bg-primary col-md-12 row">
+            <div class="col-md-2" style="max-height: 20px">
+                <img src="images/usericon.png">
             </div>
-            <div class="container mt-2" style="border: 1px solid black">
-                <h1>Hello hello hello</h1>
-            </div>            <div class="container" style="border: 1px solid black">
-            <h1>Hello hello hello</h1>
-        </div>            <div class="container" style="border: 1px solid black">
-            <h1>Hello hello hello</h1>
+            <h1 class="text-muted">{{@post['info']}}</h1>
         </div>
-        </div>
-        <div class="offset-10">
-            <button id="submit" type="submit" name="submit" class="btn btn-primary btn-md mt-4 mb-5">SUBMIT</button>
-        </div>
-    </form>
+    </repeat>
 </div>
-
-<div id="container2" class="container bg-faded">
-    <h1>Thankyou for the post</h1>
-</div>
-
+    <!--<h1>{{@state}}</h1>-->
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#logout").click(function () {
+            alert("Are you sure you want to log out?");
+        });
+    });
+</script>
+
+<script>
+</script>
+
+
 </html>

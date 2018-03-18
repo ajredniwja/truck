@@ -168,18 +168,24 @@ $f3->route('GET|POST /main', function ($f3)
     $f3->set('lname', $user->getLname());
     //$f3->set('user', $user);
     //insertPost("","i","i","sd","dsds","dk","kjdsjkljsd");
+    $_SESSION['user'] = $user;
 
 
 
     if (isset($_POST['submit']))
     {
-        //$user = $_SESSION['user'];
 
         $result = insertPost("",$user->getFname(),$user->getLname(),$user->getEmail(),$user->getScaleinfo(),$user->getInState(),$user->getInfo());
         if ($result)
         {
-            $f3->reroute('google.com');
+            $f3->reroute('/main');
         }
+    }
+    else if (isset($_POST['go']))
+    {
+        $user->setstate($_POST['statein']);
+        $_SESSION['user'] = $user;
+        $f3->reroute('/viewpost');
     }
 
     $template = new Template();
@@ -191,18 +197,20 @@ $f3->route('GET|POST /main', function ($f3)
 //testing
 $f3->route('GET|POST /viewpost', function ($f3)
 {
-    $result = getPost("Colorado");
 
+    $user = $_SESSION['user'];
+
+    $f3->set('name', $user->getFname());
+    $f3->set('state', $user->getState());
+
+
+    $result = getPost($user->getState());
     $f3->set('posts', $result);
 
-    print_r($result);
-    echo "hie";
-
     $template = new Template();
-    echo $template->render('views/hhh.html');
+    echo $template->render('views/viewpost.html');
 }
 );
-
 
 //Run fat free
 $f3->run();
