@@ -37,6 +37,13 @@ $f3->set('states',array('Alabama','Alaska','Arizona','Arkansas','California','Co
 
 $dbh = connect();
 
+
+/*************************************************************************
+ *************************************************************************
+ * Initial route, gives user the option to login or register  ************
+ *************************************************************************
+ *************************************************************************
+ */
 $f3->route('GET|POST /', function ($f3)
 {
     if (isset($_POST['submit']))
@@ -56,6 +63,11 @@ $f3->route('GET|POST /', function ($f3)
         if ($success)
         {
             $user = new Info($username);
+            $profile = getProfile($username);
+            $user->setEmail($profile['email']);
+            $user->setFname($profile['fname']);
+            $user->setLname($profile['lname']);
+
             $_SESSION['user'] = $user; //assigning it to a session variable
             $f3->reroute('/main');
         }
@@ -104,6 +116,13 @@ $f3->route('GET|POST /', function ($f3)
 }
 );
 
+
+/*************************************************************************
+ *************************************************************************
+ * The first route, which is for user registration and completing the profile
+ *************************************************************************
+ *************************************************************************
+ */
 $f3->route('GET|POST /first', function ($f3)
 {
 
@@ -131,6 +150,13 @@ $f3->route('GET|POST /first', function ($f3)
 }
 );
 
+
+/*************************************************************************
+ *************************************************************************
+ * The main route, which takes user to make or view a post****************
+ *************************************************************************
+ *************************************************************************
+ */
 $f3->route('GET|POST /main', function ($f3)
 {
     $user = $_SESSION['user'];
