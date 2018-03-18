@@ -148,12 +148,15 @@
                     <div class="h6 mt-4">
                         <label class="font-weight-bold">.</label>
                     </div>
-                    <button class="btn btn-primary btn-md">go >></button>
+                    <button id="go" class="btn btn-primary btn-md">go</button>
                 </div>
             </div><!--row for form login-->
         </div>
         <hr>
         <div class="row col-md-8 offset-2">
+            <repeat group="{{ @posts }}" value="{{ @post }}">
+                <h1>{{@post['state']}}</h1>
+            </repeat>
             <label class="font-weight-bold mt-2">Information<small> (Must be atleast 20 characters)</small></label>
             <div class="container mt-2" style="border: 1px solid black">
                 <h1>Hello hello hello</h1>
@@ -165,9 +168,6 @@
         </div>            <div class="container" style="border: 1px solid black">
             <h1>Hello hello hello</h1>
         </div>
-        </div>
-        <div class="offset-10">
-            <button id="" type="submit" name="submit" class="btn btn-primary btn-md mt-4 mb-5">SUBMIT</button>
         </div>
     </form>
 </div>
@@ -262,22 +262,11 @@
 
     }
 </script>
-
 <script>
     $(document).ready(function(){
         $("#right").click(function(){
-            $("#left").hide();
-            $("#right").hide();
-            // $("body").css("background-color", "lightgrey");
-            $("body").css("background", "url(images/road.jpg");
-            // $("body").css("background-color", "black");
-            $("body").css("opacity", "0.93");
-            $("body").css("height", "100vh");
-            $("body").css("background-position", "center");
-            $("body").css("background-repeat", "no-repeat");
-            $("body").css("background-size", "cover");
-            $("body").css("background-attachment", "fixed");
-            $("#container2").show();
+            $(location).attr('href', 'http://asingh.greenriverdev.com/truck/viewpost');
+            return false;
         });
     });
 </script>
