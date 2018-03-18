@@ -143,7 +143,7 @@ function insertPost($id,$fname,$lname,$email,$scaleinfo,$state,$info)
     global $dbh;
 
     //1. Define the query
-    $sql = "INSERT INTO info VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info);";
+    $sql = "INSERT INTO posts VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info);";
 
     //2. Prepare the statement
     $statement = $dbh->prepare($sql);
