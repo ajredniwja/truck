@@ -116,15 +116,20 @@
             <br>
         </div>
         <div class="offset-10">
-            <button type="submit" name="submit" class="btn btn-primary btn-md mt-4 mb-5">SUBMIT</button>
+            <button id="submit" type="submit" name="submit" class="btn btn-primary btn-md mt-4 mb-5">SUBMIT</button>
         </div>
     </form>
+</div>
+
+<div id="container2" class="container bg-faded">
+    <h1>Thankyou for the post</h1>
 </div>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $("#container").hide();
+    $("#container2").hide();
     $(document).ready(function () {
         $("#logout").click(function () {
             alert("Are you sure  you  want to log out?");
@@ -167,6 +172,7 @@
         });
     });
 </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
     function validateForm() {
@@ -201,6 +207,32 @@
             alert("Please enter valid information. i.e Atleast 20 characters");
             return false;
         }
+        else
+        {
+            alert("Thankyou for your post");
+        }
+
     }
 </script>
+
+<script>
+    // $(document).ready(function(){
+    //     $("#submit").click(function(){
+    //         // $("#left").hide();
+    //         // $("#right").hide();
+    //         // // $("body").css("background-color", "lightgrey");
+    //         // $("body").css("background", "url(images/road.jpg");
+    //         // // $("body").css("background-color", "black");
+    //         // $("body").css("opacity", "0.93");
+    //         // $("body").css("height", "100vh");
+    //         // $("body").css("background-position", "center");
+    //         // $("body").css("background-repeat", "no-repeat");
+    //         // $("body").css("background-size", "cover");
+    //         // $("body").css("background-attachment", "fixed");
+    //         // $("#container").show();
+    //         swal("hello");
+    //     });
+    // });
+</script>
+
 </html>
