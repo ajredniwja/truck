@@ -165,6 +165,28 @@ function insertPost($id,$fname,$lname,$email,$scaleinfo,$state,$info)
     return $result;
 }
 
+//function to get the post
+function getPost($state)
+{
+    global $dbh;
+
+//select from database
+    $sql = "SELECT * FROM posts WHERE state = :state";
+
+//prepare statement
+    $statement = $dbh->prepare($sql);
+
+//bind params
+    $statement->bindParam(':state', $state, PDO::PARAM_INT);
+
+//execute
+    $statement->execute();
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
 function getProfile($email)
 {
     global $dbh;

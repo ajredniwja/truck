@@ -188,5 +188,21 @@ $f3->route('GET|POST /main', function ($f3)
 );
 
 
+//testing
+$f3->route('GET|POST /viewpost', function ($f3)
+{
+    $result = getPost("Colorado");
+
+    $f3->set('posts', $result);
+
+    print_r($result);
+    echo "hie";
+
+    $template = new Template();
+    echo $template->render('views/hhh.html');
+}
+);
+
+
 //Run fat free
 $f3->run();
