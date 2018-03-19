@@ -1,0 +1,80 @@
+[19-Mar-2018 09:44:53 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:44:53 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:45:05 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:45:05 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:45:15 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:45:15 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:45:53 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:45:53 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:45:55 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:45:55 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:01 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:01 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:02 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:02 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:03 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:03 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:08 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:08 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:27 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:27 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:27 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:27 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:28 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:28 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:28 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:28 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:29 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:29 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:29 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:29 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:33 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:33 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:34 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:34 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:34 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:34 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:34 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:34 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:40 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:40 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:40 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:40 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:41 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:41 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:41 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:41 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:42 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:42 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:42 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:42 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:51 UTC] PHP Warning:  require_once(model/dbconnections.php): failed to open stream: No such file or directory in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 09:46:51 UTC] PHP Fatal error:  require_once(): Failed opening required 'model/dbconnections.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/asinghgr/public_html/truck/model/a.php on line 7
+[19-Mar-2018 11:12:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/asinghgr/public_html/truck/model/dbconnections.php:149
+Stack trace:
+#0 /home/asinghgr/public_html/truck/model/a.php(17): insertPost('', 'Amalalalal', 's', 'a@ajhhkh.com', 'iepe', 'asdd', 'kfjd', 'jff', 'kf')
+#1 {main}
+  thrown in /home/asinghgr/public_html/truck/model/dbconnections.php on line 149
+[19-Mar-2018 11:12:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/asinghgr/public_html/truck/model/dbconnections.php:149
+Stack trace:
+#0 /home/asinghgr/public_html/truck/model/a.php(17): insertPost('', 'Amalalalal', 's', 'a@ajhhkh.com', 'iepe', 'asdd', 'kfjd', 'jff', 'kf')
+#1 {main}
+  thrown in /home/asinghgr/public_html/truck/model/dbconnections.php on line 149
+[19-Mar-2018 11:12:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/asinghgr/public_html/truck/model/dbconnections.php:149
+Stack trace:
+#0 /home/asinghgr/public_html/truck/model/a.php(17): insertPost('', 'Amalalalal', 's', 'a@ajhhkh.com', 'iepe', 'asdd', 'kfjd', 'jff', 'kf')
+#1 {main}
+  thrown in /home/asinghgr/public_html/truck/model/dbconnections.php on line 149
+[19-Mar-2018 11:13:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/asinghgr/public_html/truck/model/dbconnections.php:149
+Stack trace:
+#0 /home/asinghgr/public_html/truck/model/a.php(17): insertPost('', 'Amalalalal', 's', 'a@ajhhkh.com', 'iepe', 'asdd', 'kfjd', 'jff', 'kf')
+#1 {main}
+  thrown in /home/asinghgr/public_html/truck/model/dbconnections.php on line 149
+[19-Mar-2018 11:13:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/asinghgr/public_html/truck/model/dbconnections.php:149
+Stack trace:
+#0 /home/asinghgr/public_html/truck/model/a.php(17): insertPost('', 'Amalalalal', 's', 'a@ajhhkh.com', 'iepe', 'asdd', 'kfjd', 'jff', 'kf')
+#1 {main}
+  thrown in /home/asinghgr/public_html/truck/model/dbconnections.php on line 149
+[19-Mar-2018 11:19:01 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/asinghgr/public_html/truck/model/a.php:28) in /home/asinghgr/public_html/truck/model/a.php on line 32
+[19-Mar-2018 11:19:03 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/asinghgr/public_html/truck/model/a.php:28) in /home/asinghgr/public_html/truck/model/a.php on line 32
+[19-Mar-2018 11:19:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/asinghgr/public_html/truck/model/a.php:28) in /home/asinghgr/public_html/truck/model/a.php on line 32

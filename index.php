@@ -175,7 +175,12 @@ $f3->route('GET|POST /main', function ($f3)
     if (isset($_POST['submit']))
     {
 
-        $result = insertPost("",$user->getFname(),$user->getLname(),$user->getEmail(),$user->getScaleinfo(),$user->getInState(),$user->getInfo());
+        $dateg = date("Y-m-d");
+        $timeg = date("h:i:sa");
+
+
+        $result = insertPost("",$user->getFname(),$user->getLname(),$user->getEmail(),$user->getScaleinfo(),$user->getInState(),$user->getInfo(),$dateg,$timeg);
+
         if ($result)
         {
             $f3->reroute('/main');
@@ -197,18 +202,30 @@ $f3->route('GET|POST /main', function ($f3)
 //testing
 $f3->route('GET|POST /viewpost', function ($f3)
 {
-
     $user = $_SESSION['user'];
 
     $f3->set('name', $user->getFname());
     $f3->set('state', $user->getState());
-
 
     $result = getPost($user->getState());
     $f3->set('posts', $result);
 
     $template = new Template();
     echo $template->render('views/viewpost.html');
+}
+);
+
+$f3->route('GET|POST /admin', function ($f3)
+{
+//    insertPost("","Amalalalal","s","a@ajhhkh.com","iepe","asdd","kfjd","jff","kf");
+
+    $post = getPosts();
+    $f3->set('posts', $post);
+    $_SESSION['user'] = $post;
+
+
+    $template = new Template();
+    echo $template->render('views/admin.html');
 }
 );
 

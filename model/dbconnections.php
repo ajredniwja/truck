@@ -138,12 +138,12 @@ function profile($id,$fname,$lname,$phone,$email)
 }
 
 
-function insertPost($id,$fname,$lname,$email,$scaleinfo,$state,$info)
+function insertPost($id,$fname,$lname,$email,$scaleinfo,$state,$info, $dateg,$timeg)
 {
     global $dbh;
 
     //1. Define the query
-    $sql = "INSERT INTO posts VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info);";
+    $sql = "INSERT INTO posts VALUES (:id, :fname, :lname, :email, :scaleinfo, :state, :info, :dateg, :timeg);";
 
     //2. Prepare the statement
     $statement = $dbh->prepare($sql);
@@ -156,6 +156,9 @@ function insertPost($id,$fname,$lname,$email,$scaleinfo,$state,$info)
     $statement->bindParam(':scaleinfo', $scaleinfo, PDO::PARAM_STR);
     $statement->bindParam(':state', $state, PDO::PARAM_STR);
     $statement->bindParam(':info', $info, PDO::PARAM_STR);
+    $statement->bindParam(':dateg', $dateg, PDO::PARAM_STR);
+    $statement->bindParam(':timeg', $timeg, PDO::PARAM_STR);
+
 
     //4. Execute the query
     $result = $statement->execute();
@@ -178,6 +181,48 @@ function getPost($state)
 
 //bind params
     $statement->bindParam(':state', $state, PDO::PARAM_INT);
+
+//execute
+    $statement->execute();
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+function getPosts()
+{
+    global $dbh;
+
+//select from database
+    $sql = "SELECT * FROM posts ORDER BY id";
+
+//prepare statement
+    $statement = $dbh->prepare($sql);
+
+//bind params
+    //$statement->bindParam(':state', $state, PDO::PARAM_INT);
+
+//execute
+    $statement->execute();
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+function deletePost($petname)
+{
+    global $dbh;
+
+//select from database
+    $sql = "DELETE * FROM posts WHERE id = 30";
+
+//prepare statement
+    $statement = $dbh->prepare($sql);
+
+//bind params
+    $statement->bindParam(':petname', $petname, PDO::PARAM_INT);
 
 //execute
     $statement->execute();

@@ -1,13 +1,32 @@
 <?php
 
-$petname = $_POST['petname'];
+error_reporting(E_ALL);
+ini_set('error_reporting', E_ALL);
 
-//connect to databse
+
+//$element = $_POST['element'];
+
 require_once('/home/asinghgr/config.php');
 
-//echo "hie";
+require_once('dbconnections.php');
+//connect to databse
 
-if ($petname != "Ajwinder")
-{
-    echo "<p id ='h'>1</p>";
-}
+
+echo "hiee";
+
+//insertPost("","Amalalalal","s","a@ajhhkh.com","iepe","asdd","kfjd","jff","kf");
+
+//if ($result)
+//{
+//    echo "hie";
+//}
+//else
+//{
+//    echo "no";
+//}
+
+echo "hiee";
+//echo $petname;
+
+
+header('Location:http://www.google.com/');

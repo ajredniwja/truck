@@ -48,15 +48,18 @@
 
 <div class="container mt-4 mb-4" style="background-color: rgba(0,0,0,0.28)">
     <div class="container bg-faded mt-5" style="background-color: rgba(0,0,0,0.35)">
-        <h1 class="display-3 text-center" style="">{{@state}}</h1>
+        <h1 class="display-3 text-center" style="">All Posts</h1>
     </div>
 
     <repeat group="{{ @posts }}" value="{{ @post }}">
-        <div id="orange" class="container rounded  col-md-8 offset-2 mt-5" style="background-color: rgba(0,0,0,0.6)">
+        <div id="" class="container rounded  col-md-8 offset-2 mt-5" style="background-color: rgba(0,0,0,0.6)">
             <div id="" class="row">
                 <div class="col-md-3" style="border-right: 1px solid white">
                     <img class="mt-2" src="images/man.png" height="150vh" width="150vh">
                     <p class="text-center mt-2 mb-1">{{@post['fname']}}</p>
+                    <p id="detail">
+                    </p>
+                    {{@post['id']}}
                 </div>
                 <div class="col-md-9 offset-0">
                     <p></p>
@@ -74,6 +77,7 @@
                     </section>
                     <span class="" style="float: right;">{{@post['timeg']}}</span><br>
                     <span style="float: right;">{{@post['dateg']}}</span>
+                    <button id="{{@post['id']}}" style="" type="button" class="btn">Light</button>
                 </div>
             </div>
             <!--<h1 class="text-muted">{{@post['info']}}</h1>-->
@@ -84,6 +88,8 @@
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+
 
 <script>
     $(document).ready(function () {
@@ -92,7 +98,37 @@
         });
     });
 </script>
+<script>
+    $(".btn").click(function(){
+        var Delete = this.id;
+        console.log(Delete);
+        // alert(petName);
 
+        //Make Ajax call
+        $.post("a.php",{element:Delete}, function(result){
+            $("#detail").html(result);
+        });
+        console.log("a");
+    });
+</script>
 
-
+<script>
+    // $(document).ready(function(){
+    //     $(".btn").click(function() {
+    //
+    //         var Delete = this.id;
+    //
+    //         $.ajax({
+    //             type: "GET",
+    //             url: "a.php",
+    //             data: "element=" + Delete,
+    //             success: function(data) {
+    //                 alert("sucess");
+    //             }
+    //         });
+    //
+    //
+    //     });
+    // });
+</script>
 </html>
