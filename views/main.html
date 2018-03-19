@@ -11,15 +11,27 @@
         {
             min-height: 100vh;
             cursor: pointer;
+            background-color: rgba(56,82,255,0.34);
         }
         #right
         {
             min-height: 100vh;
             cursor: pointer;
+            background-color: rgba(36,238,137,0.55);
+
         }
         #navbarbg
         {
             border-bottom: 1px solid #200000;
+        }
+        body
+        {
+            background: url("images/bg.jpg");
+            height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
         }
     </style>
 </head>
@@ -29,17 +41,14 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a id="color" class="navbar-brand" style="border-right: 1px solid#200000; padding-right: 12px;" href="#">Trucking Help</a>
+    <a id="color" class="navbar-brand" style="border-right: 1px solid#200000; padding-right: 12px;" href="/truck">Trucking Help</a>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" id="color" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" id="color" href="/truck">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="color" href="#">Option1 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="color" href="#">Option2</a>
+                <a class="nav-link" id="color" href="admin">Admin LogIn </a>
             </li>
         </ul>
         <!--for search-->
@@ -55,7 +64,7 @@
         </div>
     </div> <!--left-->
     <div class="col-md-6 bg-faded" id="right">
-        <div class="text-center text-muted" style="margin-top: 42vh">
+        <div class="text-center" style="margin-top: 42vh; text: white;">
             <h1 class="align-middle display-3">View Posts</h1>
         </div>
     </div><!--right-->
@@ -73,13 +82,14 @@
                     <label class="font-weight-bold">First Name</label>
                 </div>
                 <input class="form-control" type="text" placeholder="First Name" name="fname" id="pet-name" value="{{@fname}}" required>
-                <small id="detail"></small>
+                <small style="color: red;" id="fnamee"></small>
             </div>
             <div class="col-md-6 offset-0">
                 <div class="h6 mt-4 text-muted">
                     <label class="font-weight-bold">Last Name:</label>
                 </div>
                 <input class="form-control" type="text" placeholder="Last Name" name="lname" value="{{@lname}}" required>
+                <small style="color: red;" id="lnamee"></small>
             </div>
         </div><!--row for form login-->
     </div>
@@ -100,6 +110,7 @@
                             </option>
                         </repeat>
                     </select>
+                    <small style="color: red;" id="statee"></small>
                 </div>
                 <div class="col-md-6 offset-0">
                     <div class="h6 mt-4 text-muted">
@@ -107,6 +118,9 @@
                     </div>
                     <input type="radio" name="scaleinfo" value="open"> Open
                     <input class="ml-4" type="radio" name="scaleinfo" value="notopen"> Not Open
+                    <br>
+                    <small id="scaleinfoe" style="color: red;"></small>
+
                 </div>
             </div><!--row for form login-->
         </div>
@@ -114,7 +128,7 @@
             <label class="font-weight-bold mt-2">Information<small> (Must be atleast 20 characters)</small></label>
 
             <textarea class="form-control" rows="7" name="info" required></textarea>
-            <div id="detail1"></div>
+            <small style="color: red;" id="infoe"></small>
             <br>
         </div>
         <div class="offset-10">
@@ -140,7 +154,6 @@
                     </repeat>
                 </select>
                 <button name="go" id="go" class="btn btn-secondary btn-md offset-10 mt-3">-Go-</button>
-                <!--<button id="go" class="btn btn-secondary btn-md offset-10 mt-3">-Go-</button>-->
             </div>
         </div>
     </form>
@@ -161,18 +174,17 @@
 <script>
     $(document).ready(function(){
         $("#left").mouseover(function(){
-            $("#left").css("opacity", "0.8");
-        });
-        $("#left").mouseout(function(){
+            $("#left").css("background-color", "rgba(116,88,135,0.64)");
             $("#left").css("opacity", "1");
         });
+        $("#left").mouseout(function(){
+            $("#left").css("background-color", "rgba(56,82,255,0.34)");
+        });
         $("#right").mouseover(function(){
-            $("#right").css("background-color", "lightgrey");
-            $("#right").css("opacity", "0.6");
-
+            $("#right").css("background-color", "rgba(40,260,160,0.60)");
         });
         $("#right").mouseout(function(){
-            $("#right").css("background-color", "#f7f7f7");
+            $("#right").css("background-color", "rgba(36,238,137,0.55)");
         });
     });
 </script>
@@ -182,7 +194,7 @@
             $("#left").hide();
             $("#right").hide();
             // $("body").css("background-color", "lightgrey");
-            $("body").css("background", "url(images/road.jpg");
+            $("body").css("background", "url(images/bg.jpg");
             // $("body").css("background-color", "black");
             $("body").css("opacity", "0.93");
             $("body").css("height", "100vh");
@@ -196,28 +208,6 @@
 </script>
 
 <script>
-    // $("#submit").mouseover(function(){
-    //     var petName = $("#pet-name").val();
-    //
-    //     //Make Ajax call
-    //     $.post("model/a.php",{petname:petName}, function(result){
-    //         $("#detail").html(result);
-    //          return false;
-    //     });
-    // });
-</script>
-
-<script>
-    // $('#h').hide();
-    // var fname = $("h").val();
-    //
-    // if (fname == 1)
-    // {
-    //     $("#detail1").append("<h1>hello</h1>")
-    // }
-</script>
-
-<script>
      function validateForm() {
          var fname = document.forms["formid"]["fname"].value;
          var lname = document.forms["formid"]["lname"].value;
@@ -227,27 +217,28 @@
 
          if (fname == "")
          {
-             alert("First Name cannot be empty");
+             $("#fnamee").html("Please enter a first name");
              return false;
          }
          if (lname == "")
          {
-             alert("Last name cannot be empty");
+             $("#lnamee").html("Please enter last name");
              return false;
          }
          if (state == "")
          {
-             alert("Please Select a State");
+             $("#statee").html("Please select a state");
              return false;
          }
          if ((scaleinfo != "open" ) && (scaleinfo != "notopen"))
          {
-             alert("Please indicate scale information!");
+             $("#scaleinfoe").html("Please Indicate scale info");
              return false;
          }
          if (info.length < 20)
          {
-             alert("Please enter valid information. i.e Atleast 20 characters");
+             $("#infoe").html("ENTER VALID INFO");
+             // alert("Please enter valid information. i.e Atleast 20 characters");
              return false;
          }
          else
@@ -257,14 +248,6 @@
      }
 </script>
 <script>
-    // $(document).ready(function(){
-    //     $("#go").click(function(){
-    //         $(location).attr('href', 'http://asingh.greenriverdev.com/truck/viewpost');
-    //         return false;
-    //     });
-    // });
-</script>
-<script>
     $(document).ready(function(){
         $("#right").click(function(){
             $("#left").hide();
@@ -272,7 +255,7 @@
             // $("body").css("background-color", "lightgrey");
             $("body").css("background", "url(images/bg.jpg");
             // $("body").css("background-color", "black");
-            $("body").css("opacity", "0.93");
+            $("body").css("opacity", "0.9");
             $("body").css("height", "100vh");
             $("body").css("background-position", "center");
             $("body").css("background-repeat", "no-repeat");
