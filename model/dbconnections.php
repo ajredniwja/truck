@@ -211,25 +211,45 @@ function getPosts()
     return $result;
 }
 
-function deletePost($petname)
+function deletePost($delete)
 {
     global $dbh;
 
 //select from database
-    $sql = "DELETE * FROM posts WHERE id = 30";
+    $sql = "DELETE FROM `posts` WHERE `posts`.`id` = :delete";
 
 //prepare statement
     $statement = $dbh->prepare($sql);
 
 //bind params
-    $statement->bindParam(':petname', $petname, PDO::PARAM_INT);
+    $statement->bindParam(':delete', $delete, PDO::PARAM_INT);
 
 //execute
-    $statement->execute();
-
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $result = $statement->execute();
 
     return $result;
+}
+
+function updatePost($info,$id)
+{
+    global $dbh;
+
+//select from database
+    $sql = "UPDATE `posts` SET `info` = :info WHERE `posts`.`id` = :id";
+
+//prepare statement
+    $statement = $dbh->prepare($sql);
+
+//bind params
+    $statement->bindParam(':info', $info, PDO::PARAM_INT);
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+
+//execute
+    $result = $statement->execute();
+
+    return $result;
+
+
 }
 
 function getProfile($email)
