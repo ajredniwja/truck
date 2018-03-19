@@ -9,15 +9,31 @@
     <style>
         #left
         {
+            background-color: rgba(2,0,0,0.8);
+            color: white;
             min-height: 100vh;
         }
         #right
         {
+            color: black;
+            background-color: rgba(216,216,216,0.8);
             min-height: 100vh;
         }
         #navbarbg
         {
+            background-color: rgba(254,254,250,0.8);
             border-bottom: 1px solid #200000;
+        }
+        body
+        {
+            background: url("images/bg.jpg");
+            height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+
         }
     </style>
 </head>
@@ -57,14 +73,14 @@
                 <div class="row mt-5">
                     <div class="col-md-3 offset-3">
                         <input class="form-control" type="text" placeholder="username" name="username" value="{{@username}}">
-                        <small id="hide" class="form-text text-muted"> You can also enter your email</small>
+                        <small id="hide" class="form-text"> You can also enter your email</small>
                         <check if="{{isset(@errors['notfound'])}}">
                             <small class="form-text text-danger">{{@errors['notfound']}}</small>
                         </check>
                     </div>
                     <div class="col-md-3">
                         <input class="form-control" type="password" placeholder="password" name="pw" value="{{@pw}}">
-                        <small class="form-text text-muted"> Forgot Password?</small>
+                        <small class="form-text"> Forgot Password?</small>
                         <check if="{{isset(@errors['pw'])}}">
                             <small class="form-text text-danger">{{@errors['pw']}}</small>
                         </check>
@@ -78,10 +94,10 @@
                 <div class="row mt-5">
                     <div class="col-md-6 offset-3 mt-5" >
                         <img src="images/truckikon.png" class="img-rounded" width="">
-                        <div class="h4 mt-1 text-muted">
+                        <div class="h4 mt-1">
                             Trucking made easier, get help any time, any where.
                         </div>
-                        <div class="h6 mt-1 text-muted">
+                        <div class="h6 mt-1">
                             Join Easy-trucking today.
                         </div>
                         <input class="form-control mt-4 col-md-10" type="text" placeholder="Email" name="email" value="{{@email}}">
