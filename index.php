@@ -13,11 +13,6 @@ require_once('/home/asinghgr/config.php');
 
 require_once ('model/dbconnections.php');
 
-require_once ('classes/user.php');
-require_once ('classes/profile.php');
-require_once ('classes/info.php');
-
-
 //start a session
 session_start();
 
