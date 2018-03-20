@@ -9,6 +9,13 @@
  */
 
 
+/*
+************************************************************************
+ * This is the index page which is the main page for all the routes and
+ * validation.
+*************************************************************************
+ */
+
 //turning on the error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
@@ -189,8 +196,10 @@ $f3->route('GET|POST /first', function ($f3)
     {
         //insert to data base (validation done through js)
         profile("", $user->getFname(), $user->getLname(), $user->getPhone(),$user->getEmail());
+
         //put to session var
         $_SESSION['user'] = $user;
+
         //redirect
         $f3->reroute('/main');
     }
