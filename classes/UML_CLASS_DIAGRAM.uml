@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>/Users/ajwinder/PhpstormProjects/greenriverdev/truck/classes</OriginalElement>
+  <nodes>
+    <node x="-353.42153542195877" y="10.35443127293263">\Info</node>
+    <node x="-62.318727067456905" y="102.1364662715213">\Profile</node>
+    <node x="202.2698278295229" y="131.81668077900082">\User</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\Profile" target="\User">
+      <point x="0.0" y="-70.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="\Info" target="\Profile">
+      <point x="0.0" y="-224.5" />
+      <point x="0.0" y="70.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.4854223505502024" x="12.480966631514605" y="250.86856701494327" />
+  <SelectedNodes>
+    <node>\Info</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constants</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
