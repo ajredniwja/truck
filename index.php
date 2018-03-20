@@ -219,9 +219,18 @@ $f3->route('GET|POST /admin', function ($f3)
 {
 //    insertPost("","Amalalalal","s","a@ajhhkh.com","iepe","asdd","kfjd","jff","kf");
 
+
     $post = getPosts();
     $f3->set('posts', $post);
     $_SESSION['user'] = $post;
+    if (isset($_POST['submit']))
+    {
+        $updateinfo = $_POST['info'];
+
+        updatePost($updateinfo);
+
+    }
+
 
 
     $template = new Template();
