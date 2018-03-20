@@ -4,7 +4,6 @@
  * index.php
  * 3/18/2018
  * <<TRUCK POST>>
- * Containing all functions to interact with the database.
  *************************************************************************
  */
 
