@@ -1,12 +1,24 @@
 <?php
-//<!--Ajwinder Singh-->
-//<!--2/15/2018-->
-//<!--Membe.php-->
+/*************************************************************************
+ * Ajwinder Singh & Parminder Singh
+ * user.php
+ * 3/18/2018
+ * <<TRUCK POST>>
+ *************************************************************************
+ */
 
+
+/*
+************************************************************************
+ * This is the parent class, called user, it is extended by other two
+ * classes, it sets the email.
+*************************************************************************
+ */
 class User
 {
     //fields
     protected $email;
+
 
     function __construct($email)
     {
@@ -14,7 +26,8 @@ class User
     }
 
     /**
-     * @return mixed
+     * Getter to get the email.
+     * @return email
      */
     public function getEmail()
     {
@@ -22,6 +35,7 @@ class User
     }
 
     /**
+     * Setter to set the email.
      * @param mixed $email
      */
     public function setEmail($email)

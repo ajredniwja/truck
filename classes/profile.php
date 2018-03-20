@@ -1,12 +1,24 @@
 <?php
-//class extending Member
-//<!--Ajwinder Singh-->
-//<!--2/1/2018-->
-//<!--PremiumMember.php-->
+/*************************************************************************
+ * Ajwinder Singh & Parminder Singh
+ * profile.php
+ * 3/18/2018
+ * <<TRUCK POST>>
+ *************************************************************************
+ */
 
 
+/*
+************************************************************************
+ * This is the Profile class, it extends from User class, it passes the
+ * email the user. i.e parent class. The protected fields has getters and
+ * setters in Info class.
+*************************************************************************
+ */
 class Profile extends User
 {
+
+    //fields
 
     protected $fname;
     protected $lname;
@@ -14,85 +26,14 @@ class Profile extends User
     protected $state;
 
 
-
+    /**
+     * Profile constructor, passes the email to the parent class.
+     * @param $email
+     */
     function __construct($email)
     {
         //passing to parent constructor
         parent::__construct($email);
     }
-
-    /**
-     * @return email
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFname()
-    {
-        return $this->fname;
-    }
-
-    /**
-     * @param mixed $fname
-     */
-    public function setFname($fname)
-    {
-        $this->fname = $fname;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLname()
-    {
-        return $this->lname;
-    }
-
-    /**
-     * @param mixed $lname
-     */
-    public function setLname($lname)
-    {
-        $this->lname = $lname;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * @param mixed $phone
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * @param mixed $state
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-    }
-
-
 
 }

@@ -1,6 +1,22 @@
 <?php
+/*************************************************************************
+ * Ajwinder Singh & Parminder Singh
+ * info.php
+ * 3/18/2018
+ * <<TRUCK POST>>
+ *************************************************************************
+ */
 
 
+/*
+************************************************************************
+ * This is the info class, it extends from profile, it is used to set,
+ * and get three fields, which are instate, scaleinfo and info,
+ * instate,- the state the user is posting into or looking info for,
+ * scale info - open or not open
+ * info- the information user enetered
+*************************************************************************
+ */
 class Info extends Profile
 {
 //fields
@@ -8,13 +24,27 @@ class Info extends Profile
     protected $scaleinfo;
     protected $info;
 
+
+    /**
+     * Info constructor.
+     * Used to pass the email to the parent constructor.
+     * @param $email
+     */
     function __construct($email)
     {
         parent::__construct($email);
     }
 
+
+/*
+************************************************************************
+            ************** Getters **************
+*************************************************************************
+ */
+
     /**
-     * @return mixed
+     * Getter that returns the state.
+     * @return state
      */
     public function getInState()
     {
@@ -22,15 +52,8 @@ class Info extends Profile
     }
 
     /**
-     * @param mixed $inState
-     */
-    public function setInState($inState)
-    {
-        $this->inState = $inState;
-    }
-
-    /**
-     * @return mixed
+     * Getter that returns the scaleinfo.
+     * @return scaleinfo
      */
     public function getScaleinfo()
     {
@@ -38,15 +61,8 @@ class Info extends Profile
     }
 
     /**
-     * @param mixed $scaleinfo
-     */
-    public function setScaleinfo($scaleinfo)
-    {
-        $this->scaleinfo = $scaleinfo;
-    }
-
-    /**
-     * @return mixed
+     * Getter that returns the info.
+     * @return post info
      */
     public function getInfo()
     {
@@ -54,15 +70,8 @@ class Info extends Profile
     }
 
     /**
-     * @param mixed $info
-     */
-    public function setInfo($info)
-    {
-        $this->info = $info;
-    }
-
-    /**
-     * @return mixed
+     * Getter that returns the first name.
+     * @return First Name
      */
     public function getFname()
     {
@@ -70,7 +79,8 @@ class Info extends Profile
     }
 
     /**
-     * @return mixed
+     * Getter that returns the last name.
+     * @return last name
      */
     public function getLname()
     {
@@ -78,7 +88,8 @@ class Info extends Profile
     }
 
     /**
-     * @return mixed
+     * Getter that returns the phone number.
+     * @return phonenumber
      */
     public function getPhone()
     {
@@ -86,7 +97,8 @@ class Info extends Profile
     }
 
     /**
-     * @return mixed
+     * Getter that returns the state.
+     * @return state
      */
     public function getState()
     {
@@ -94,14 +106,51 @@ class Info extends Profile
     }
 
     /**
-     * @return mixed
+     * Getter that returns the email
+     * @return email
      */
     public function getEmail()
     {
         return $this->email;
     }
 
+
+/*
+************************************************************************
+            ************** SETTERS **************
+*************************************************************************
+ */
     /**
+     * Setter to set the state selected by the user.
+     * @param $inState
+     */
+    public function setInState($inState)
+    {
+        $this->inState = $inState;
+    }
+
+    /**
+     * Setter to set the scale info.
+     * @param $scaleinfo
+     */
+    public function setScaleinfo($scaleinfo)
+    {
+        $this->scaleinfo = $scaleinfo;
+    }
+
+
+    /**
+     * Setter to set the indo (post)
+     * @param $info
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+    }
+
+
+    /**
+     * Setter to set the first name
      * @param mixed $fname
      */
     public function setFname($fname)
@@ -109,7 +158,9 @@ class Info extends Profile
         $this->fname = $fname;
     }
 
+
     /**
+     * Setter to set the last name
      * @param mixed $lname
      */
     public function setLname($lname)
@@ -118,6 +169,7 @@ class Info extends Profile
     }
 
     /**
+     * Setter to set the phone
      * @param mixed $phone
      */
     public function setPhone($phone)
@@ -126,6 +178,7 @@ class Info extends Profile
     }
 
     /**
+     * Setter to set the state
      * @param mixed $state
      */
     public function setState($state)
