@@ -1,36 +1,46 @@
 <?php
-
-
-//////////////////////////////////////
-/// login table///////////////////////
-/// /////////////////////////////////
-
-//CREATE TABLE `asinghgr_grc`.`login`
-//(`id` INT(200) NOT NULL AUTO_INCREMENT ,
-//`email` VARCHAR(30) NOT NULL ,
-//`password` VARCHAR(20) NOT NULL ,
-//PRIMARY KEY (`id`))
-//ENGINE = MyISAM
-
-
-
-//////////////////////////////////////
-/// profile table/////////////////////
-/// /////////////////////////////////
-
-
-//CREATE TABLE `asinghgr_grc`.`profile`
-// ( `id` INT(200) NOT NULL AUTO_INCREMENT ,
-// `fname` VARCHAR(50) NOT NULL ,
-// `lname` VARCHAR(50) NOT NULL ,
-// `phone` VARCHAR(50) NOT NULL ,
-// `email` VARCHAR(50) NOT NULL,
-// PRIMARY KEY (`id`)) ENGINE = MyISAM;
-
-
-
 /*************************************************************************
+ * Ajwinder Singh & Parminder Singh
+ * dbconnections.php
+ * 3/18/2018
+ * <<TRUCK POST>>
+ * Containing all functions to interact with the database.
  *************************************************************************
+ */
+
+
+/*******************************************
+ ********** login Table ********************
+ *******************************************
+ * CREATE TABLE `asinghgr_grc`.`login`
+ * (`id` INT(200) NOT NULL AUTO_INCREMENT ,
+ * `email` VARCHAR(30) NOT NULL ,
+ * `password` VARCHAR(20) NOT NULL ,
+ * `PRIMARY KEY (`id`))
+ * ENGINE = MyISAM
+ **********************************************
+ **********************************************
+ */
+
+
+/*******************************************
+ ********** profile Table ********************
+ *******************************************
+ * CREATE TABLE `asinghgr_grc`.`profile`
+ * ( `id` INT(200) NOT NULL AUTO_INCREMENT ,
+ * `fname` VARCHAR(50) NOT NULL ,
+ * lname` VARCHAR(50) NOT NULL ,
+ * `phone` VARCHAR(50) NOT NULL ,
+ * `email` VARCHAR(50) NOT NULL,
+ * PRIMARY KEY (`id`)) ENGINE = MyISAM;
+ **********************************************
+ **********************************************
+ */
+
+
+/*******************************************
+ ********** Posts Table ********************
+ *******************************************
 CREATE TABLE `asinghgr_grc`.`posts`
  * ( `id` INT(50) NOT NULL AUTO_INCREMENT ,
  * `fname` VARCHAR(50) NOT NULL ,
@@ -39,23 +49,26 @@ CREATE TABLE `asinghgr_grc`.`posts`
  * `scaleinfo` VARCHAR(20) NOT NULL ,
  * `state` VARCHAR(50) NOT NULL ,
  * `info` TEXT NOT NULL ,
- * `q` INT(50) NOT NULL ,
+ * `date` varchar(20) NOT NULL ,
+ * `time` varchar(20) NOT NULL ,
  * PRIMARY KEY (`id`))
  * ENGINE = MyISAM;
- *************************************************************************
- *************************************************************************
+ **********************************************
+ **********************************************
  */
 
+/*
+************************************************************************
+ * This is connect functions, which takes Ajwinder's, dsn, username, pw,
+ * to connect to the database.
+*************************************************************************
+ */
 function connect()
 {
     try
     {
         //Instantiate a database object
         $dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-//        if ($dbh)
-//        {
-//            echo "hie";
-//        }
         return $dbh;
     }
     catch (PDOException $e)
@@ -65,6 +78,16 @@ function connect()
     }
 }
 
+/**
+ *
+ * The user function is used to insert a new user to the database.
+ *
+ * @param $id
+ * @param $email
+ * @param $password
+ * @return bool
+ *
+ */
 function user($id, $email, $password)
 {
     global $dbh;
@@ -87,6 +110,14 @@ function user($id, $email, $password)
     return $result;
 }
 
+/**
+ *
+ * The get user, checks the for the password in the user table
+ * and returns if it is in there or not.
+ * @param $pw
+ * @return mixed
+ *
+ */
 function getUser($pw)
 {
     global $dbh;
@@ -110,7 +141,21 @@ function getUser($pw)
     return $result;
 }
 
-function profile($id,$fname,$lname,$phone,$email)
+/**
+ *
+ * The profile function inserts the info of the
+ * user when he completes his profile to the db.
+ * In table profile.
+ *
+ * @param $id
+ * @param $fname
+ * @param $lname
+ * @param $phone
+ * @param $email
+ * @return bool
+ *
+ */
+function profile($id, $fname, $lname, $phone, $email)
 {
     global $dbh;
 
@@ -127,8 +172,6 @@ function profile($id,$fname,$lname,$phone,$email)
     $statement->bindParam(':phone', $phone, PDO::PARAM_STR);
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
 
-
-
     //4. Execute the query
     $result = $statement->execute();
 
@@ -138,7 +181,24 @@ function profile($id,$fname,$lname,$phone,$email)
 }
 
 
-function insertPost($id,$fname,$lname,$email,$scaleinfo,$state,$info, $dateg,$timeg)
+/**
+ *
+ * The insert post is used to insert the post and the credentials
+ * of the person who posted the data to the db.
+ *
+ * @param $id
+ * @param $fname
+ * @param $lname
+ * @param $email
+ * @param $scaleinfo
+ * @param $state
+ * @param $info
+ * @param $dateg
+ * @param $timeg
+ * @return bool
+ *
+ */
+function insertPost($id, $fname, $lname, $email, $scaleinfo, $state, $info, $dateg, $timeg)
 {
     global $dbh;
 
@@ -168,7 +228,14 @@ function insertPost($id,$fname,$lname,$email,$scaleinfo,$state,$info, $dateg,$ti
     return $result;
 }
 
-//function to get the post
+/**
+ *
+ * The getpost is used to get the posts of the particular state.
+ *
+ * @param $state
+ * @return array of all the posts from same state
+ *
+ */
 function getPost($state)
 {
     global $dbh;
@@ -190,6 +257,12 @@ function getPost($state)
     return $result;
 }
 
+/**
+ * Get posts get all the posts from the db orderd by the id.
+ *
+ * @return array of all the posts
+ *
+ */
 function getPosts()
 {
     global $dbh;
@@ -211,6 +284,13 @@ function getPosts()
     return $result;
 }
 
+/**
+ * It takes the id to delete the particular post where id matches.
+ *
+ * @param $delete the id
+ *
+ * @return bool
+ */
 function deletePost($delete)
 {
     global $dbh;
@@ -230,7 +310,15 @@ function deletePost($delete)
     return $result;
 }
 
-function updatePost($info,$id)
+/**
+ * This is used to update the info on the basis of id match.
+
+ * @param $info the post
+ * @param $id the post id
+ * @return bool
+ *
+ */
+function updatePost($info, $id)
 {
     global $dbh;
 
@@ -252,6 +340,13 @@ function updatePost($info,$id)
 
 }
 
+/**
+ * Get profile is used to get the profile of the user where email matches.
+ *
+ * @param $email
+ * @return mixed
+ *
+ */
 function getProfile($email)
 {
     global $dbh;
