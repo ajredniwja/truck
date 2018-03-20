@@ -126,6 +126,10 @@ $f3->route('GET|POST /', function ($f3)
 $f3->route('GET|POST /first', function ($f3)
 {
 
+    if (!(isset($_SESSION['user'])))
+    {
+        $f3->reroute('/');
+    }
     $user = $_SESSION['user'];
 
     $user->setFname($_POST['fname']);
@@ -164,6 +168,11 @@ $f3->route('GET|POST /first', function ($f3)
  */
 $f3->route('GET|POST /main', function ($f3)
 {
+    if (!(isset($_SESSION['user'])))
+    {
+        $f3->reroute('/');
+    }
+
     $user = $_SESSION['user'];
 
     $user->setInState($_POST['state']);
@@ -171,11 +180,8 @@ $f3->route('GET|POST /main', function ($f3)
     $user->setInfo($_POST['info']);
     $f3->set('fname', $user->getFname());
     $f3->set('lname', $user->getLname());
-    //$f3->set('user', $user);
-    //insertPost("","i","i","sd","dsds","dk","kjdsjkljsd");
+
     $_SESSION['user'] = $user;
-
-
 
     if (isset($_POST['submit']))
     {
@@ -212,6 +218,10 @@ $f3->route('GET|POST /main', function ($f3)
 //testing
 $f3->route('GET|POST /viewpost', function ($f3)
 {
+    if (!(isset($_SESSION['user'])))
+    {
+        $f3->reroute('/');
+    }
     $user = $_SESSION['user'];
 
     $f3->set('name', $user->getFname());
