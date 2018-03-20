@@ -1,12 +1,15 @@
 {
-  "name": "asinghgr/dating",
-  "authors" : [
+  "name": "Ajwinder",
+  "authors": [
     {
-      "name": "Ajwinder Singh",
+      "name": "Ajwinder",
       "email": "asingh62@mail.greenriver.edu"
     }
   ],
   "require": {
     "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap":["classes/"]
   }
 }
