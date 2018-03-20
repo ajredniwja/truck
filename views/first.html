@@ -46,10 +46,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" id="color" href="/truck">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="color" href="admin">Admin LogIn </a>
+                <a class="nav-link" id="color" href="main">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <!--for search-->
@@ -134,70 +131,5 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $("#logout").click(function () {
-            var logout = confirm("Are you sure you want to log out?");
-            if (logout == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        });
-    });
-</script>
-<script>
-    $('#showright').hide();
-</script>
-<script>
-    $(document).ready(function(){
-        $("#complete").click(function(){
-            $("#truck").animate({height : '300px',width : '300px',opacity : '0.4'});
-            $("#truck").animate({height : '256px',width : '256px'});
-            $("#showright").animate({height : 'toggle'}, "slow");
-            $("#complete").hide();
-        });
-    });
-</script>
-<script>
-    function validateForm() {
-        var fname = document.forms["formid"]["fname"].value;
-        var email = document.forms["formid"]["email"].value;
-        var lname = document.forms["formid"]["lname"].value;
-        var state = document.forms["formid"]["state"].value;
-        var phone = document.forms["formid"]["phone"].value;
-
-
-        if (fname == "")
-        {
-            alert("First Name cannot be empty");
-            return false;
-        }
-        if (lname == "")
-        {
-            alert("Last name cannot be empty");
-            return false;
-        }
-        if (state == "")
-        {
-            alert("Please Select a State");
-            return false;
-        }
-        if (phone.length != 10)
-        {
-            alert("Please enter a valid phone number");
-            return false;
-        }
-        if (email == "")
-        {
-            alert("Email cannot be empty");
-            return false;
-        }
-    }
-</script>
-
+<script src="./scripts/first.js"></script>
 </html>

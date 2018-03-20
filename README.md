@@ -49,7 +49,7 @@ Completion of requirements.
 7.  All the php files have Docblocks and additional comments wherever necessary.
 
 8. Full validation for each and every field has been made where ever the user is trying to enter some data using java script.
-    On almost all the pages.
+    On almost all the pages. All the files in the script folder.
 
 9. jQuery is used on almost every html file.
     Ajax is used for admin login to delete and update the data, using two files from model directory

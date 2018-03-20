@@ -90,95 +90,19 @@
         </div>
         <div class="container bg-faded col-md-8 mt-2 thisdiv" id="div{{@post['id']}}" style="background-color: rgba(0,0,0,0.6)">
             <h4>Update Info</h4>
-                <textarea class="form-control text-white" rows="7" name="info" id="b{{@post['id']}}" style="background-color: rgba(255,255,255,0.1);"></textarea>
+                <textarea class="form-control text-white" rows="7" name="info" id="b{{@post['id']}}" style="background-color: rgba(255,255,255,0.1);">{{@post['info']}}</textarea>
                 <button id="b{{@post['id']}}" type="submit" class="col-md-3 offset-9 btn btn-sm mb-2 mt-2 submit" style="">Submit</button>
                 <button id="cancel" type="submit" class="col-md-3 offset-9 btn btn-sm mb-2 mt-2 cancel" style="">Cancel</button>
         </div>
     </repeat>
     <br>
-    <!--<h1>{{@state}}</h1>-->
 </div>
+<div class="col-md-2 offset-5">
+    <button class="btn btn-lg col-md-12 goback">Go Back</button>
+</div>
+<br>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery.js"></script>
-
-
-<script>
-    $(".thisdiv").hide();
-    $(document).ready(function () {
-        $("#logout").click(function () {
-            var logout = confirm("Are you sure you want to log out?");
-            if (logout == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        });
-    });
-</script>
-<script>
-    $(".delete").click(function(){
-        var Delete = this.id;
-        // $("#"+Delete).html
-        console.log(Delete);
-        var postdelete = confirm("Are you sure you want to delete this post?");
-        //Make Ajax call
-        if (postdelete == true)
-        {
-            $.post("a.php",{element:Delete}, function(result){
-                alert(result);
-            });
-            location.reload();
-        }
-        else
-        {
-            return false;
-        }
-    });
-</script>
-
-<script>
-    $(".update").click(function(){
-        var updatediv = this.id;
-        // alert(updatediv);
-        $("#div"+updatediv).show();
-        $("#c"+updatediv).hide();
-    });
-</script>
-<script>
-    $(".submit").click(function(){
-        var bid = this.id;
-
-        var change = $("#"+bid).val();
-        //alert(change);
-
-        var update = confirm("Are you sure you want to make these changes?");
-
-        if (update == true)
-        {
-            $.post("update.php",{update:bid,changed:change}, function(result){
-                alert(result);
-            });
-            location.reload();
-        }
-        else
-        {
-            location.reload();
-            return false;
-        }
-
-        // console.log("a");
-    });
-</script>
-
-
-<script>
-    $(".cancel").click(function(){
-        location.reload();
-
-    });
-</script>
+<script src="./scripts/admin.js"></script>
 </html>
