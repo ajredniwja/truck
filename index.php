@@ -144,6 +144,11 @@ $f3->route('GET|POST /first', function ($f3)
         $_SESSION['user'] = $user;
         $f3->reroute('/main');
     }
+    if (isset($_POST['logout']))
+    {
+        session_destroy();
+        $f3->reroute('/');
+    }
 
     $template = new Template();
     echo $template->render('views/first.html');
