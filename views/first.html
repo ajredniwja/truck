@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="http://asingh.greenriverdev.com/truck/styles/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <title>Registration</title>
-    <style>
-    </style>
 </head>
+
 <body>
+
 <!--navbar-->
 <nav class="navbar navbar-toggleable-sm navbar-inverse bg-faded py-0" id="navbarbg">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,13 +26,18 @@
                 <a class="nav-link" id="color" href="main">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <!--for search-->
+        <!--for logout-->
         <form class="form-inline my-2 my-sm-0" action="#" method="post">
             <button id="logout" class="btn btn-outline-danger my-2 my-sm-0 py-1" name="logout" type="submit">LogOut</button>
         </form>
     </div><!--collapse navbar-collapse-->
 </nav><!--Navbar toggleable-->
+
+<!--left and right in row-->
+
 <div class="row">
+
+    <!--left -->
     <div id="left" class="col-md-6">
         <h1 class="display-3 ml-2 mt-2">
             Welcome to Easy Trucking.
@@ -40,14 +45,15 @@
         <div class="col-md-8 offset-4" style="margin-top: 10em;">
             <img id="truck" src="images/truck.png" height="">
         </div>
-        <div>
 
-        </div>
+        <!--complete your profile button-->
 
         <div class="col-md-4 offset-8" style="margin-top: 3em;">
             <button id="complete" class="btn btn-secondary mt-5" type="submit" name="start">Complete your profile</button>
         </div>
-    </div> <!--left-->
+
+    </div> <!-- left -->
+    <!--right-->
     <div class="col-md-6 bg-faded" id="right">
         <div id="showright" class="mt-3 ml-2">
             <h1>
@@ -109,4 +115,5 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./scripts/first.js"></script>
+
 </html>

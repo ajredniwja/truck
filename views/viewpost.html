@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="http://asingh.greenriverdev.com/truck/styles/styles.css">
-
     <title>View Post</title>
 </head>
 <body>
@@ -24,16 +23,21 @@
                 <a class="nav-link" id="color" href="main">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <!--for search-->
+        <!--for logout-->
         <form class="form-inline my-2 my-sm-0" action="#" method="post">
             <button id="logout" class="btn btn-outline-danger my-2 my-sm-0 py-1" name="logout" type="submit">LogOut</button>
         </form>
     </div><!--collapse navbar-collapse-->
 </nav><!--Navbar toggleable-->
+
+<!--container-->
+
 <div class="container mt-4 mb-4" style="background-color: rgba(0,0,0,0.28)">
     <div class="container bg-faded mt-5" style="background-color: rgba(0,0,0,0.35)">
         <h1 class="display-3 text-center" style="">{{@state}}</h1>
     </div>
+
+    <!--repeat group-->
 
     <repeat group="{{ @posts }}" value="{{ @post }}">
         <div id="orange" class="container rounded  col-md-8 offset-2 mt-5" style="background-color: rgba(0,0,0,0.6)">
@@ -45,10 +49,7 @@
                 <div class="col-md-9 offset-0">
                     <p></p>
                     <span class="font-weight-bold">{{@post['fname']}} {{@post['lname']}}</span>
-                    <!--<span class="font-weight-bold">{{@emails}}</span>-->
                     <p class="font-italic">{{@post['email']}}</p>
-
-
                     <section>
                         <span class="font-weight-bold">Information :</span>
                         <ul>
@@ -60,16 +61,21 @@
                     <span style="float: right;">{{@post['dateg']}}</span>
                 </div>
             </div>
-            <!--<h1 class="text-muted">{{@post['info']}}</h1>-->
         </div>
     </repeat>
     <br>
-</div>
+</div> <!--FOR CONTAINER -->
+
+<!--go back button-->
 <div class="col-md-2 offset-5">
     <button class="btn btn-lg col-md-12 goback">Go Back</button>
 </div>
 <br>
 </body>
+
+<!--script urls-->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./scripts/viewpost.js"></script>
+
 </html>

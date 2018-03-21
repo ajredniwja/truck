@@ -24,18 +24,24 @@
                 <a class="nav-link" id="color" href="main">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <!--for search-->
+        <!--for logout-->
         <form class="form-inline my-2 my-sm-0" action="#" method="post">
             <button id="logout" class="btn btn-outline-danger my-2 my-sm-0 py-1" name="logout" type="submit">LogOut</button>
         </form>
     </div><!--collapse navbar-collapse-->
 </nav><!--Navbar toggleable-->
+
+<!--row for left and right-->
 <div class="row">
+
+    <!--left-->
     <div id="left" class="col-md-6">
         <div class="text-center" style="margin-top: 42vh">
             <h1 class="align-middle display-3">Make a Post</h1>
         </div>
     </div> <!--left-->
+
+    <!--right-->
     <div class="col-md-6 bg-faded" id="right">
         <div class="text-center" style="margin-top: 42vh; text: white;">
             <h1 class="align-middle display-3">View Posts</h1>
@@ -44,6 +50,7 @@
 </div><!--row for left right-->
 
 
+<!--make a post-->
 <div id="container" class="container rounded bg-faded text-muted mt-5" style="">
     <br>
     <p class="display-4 text-center mt-2">Make a Post</p>
@@ -110,6 +117,7 @@
     </form>
 </div>
 
+<!--view post-->
 <div id="viewpost">
     <form action="#" method="post">
         <div id="info" class="col-md-4 offset-4">
@@ -132,8 +140,9 @@
     </form>
 </div>
 
-
 </body>
+
+<!--scripts-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./scripts/main.js"></script>
 
